@@ -1,0 +1,787 @@
+ ------------------------------------------------------------------------------
+
+                   #####
+                  ##   ##    ##     ####   ##  #   ##   ####
+                  ##        ####   ##      ##  ##  ##  ##  ##
+                  ##       ##  ##   ####   ##  ### ##  ##  ##
+                  ##       ######      ##  ##  ## ###  ##  ##
+                  ##   ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
+                   #####   ##  ##   ####   ##  ##   #   ####
+
+                     The Cambridge Quantum Monte Carlo Code
+            CASINO v2.13.727+dirty [maezono@unified07] (3 May 2019)
+
+      Main Authors : R.J.Needs, M.D.Towler, N.D.Drummond and P.Lopez Rios
+
+            Theory of Condensed Matter Group, Cavendish Laboratory,
+                University of Cambridge, Cambridge, CB3 OHE, UK.
+
+                     CASINO web page: vallico.net/casinoqmc
+
+                      Current contact: mdt26 at cantab.net
+
+ ------------------------------------------------------------------------------
+ Started 2019/11/25 16:33:13.594
+
+ Sequential run: not using MPI.
+
+ General input parameters
+ ========================
+ NEU (num up spin electrons)              :  8
+ NED (num down spin electrons)            :  8
+ RUNTYPE (type of run)                    :  vmc_opt
+ PSI_S  (form for [anti]symmetrizing wfn) :  slater
+ ATOM_BASIS_TYPE (atom-centred orb basis) :  blip
+ INTERACTION (interaction type)           :  ewald
+ TESTRUN (read input data,print and stop) :  F
+ PERIODIC                                 :  T
+ NPCELLS (num primitive cells)            :  1
+ COMPLEX_WF (complex Slater wave fn.)     :  F
+ NEIGHPRINT (neighbour analysis)          :  0
+ USE_JASTROW (use Jastrow factor)         :  T
+ BACKFLOW (use backflow corrections)      :  F
+ DBARRC (DBAR recalculation period)       :  100000
+ NON_LOCAL_GRID (NL integration grid)     :  4
+ E_OFFSET (energy offset)                 :  0.0000
+ ESUPERCELL                               :  F
+ WRITE_BINARY_BLIPS (create bwfn.data.bin):  T
+ CONV_BINARY_BLIPS (blip b1 --> bin)      :  F
+ SPARSE                                   :  F
+ CHECKPOINT (checkpointing level)         :  1
+ CHECKPOINT_NCPU (chkpnt group size)      :  1
+ CON_LOC (Dir to read/write config.*)     :  ./
+ RELATIVISTIC                             :  F
+
+ VMC/optimization input parameters
+ =================================
+ NEWRUN (start new run)                   :  T
+ VMC_METHOD (choice of VMC algorithm)     :  1
+ DTVMC (VMC time step)                    :  1.0000E-01
+ OPT_DTVMC (VMC time-step optimization)   :  1
+ VMC_NSTEP (num VMC steps)                :  1000
+ VMC_NCONFIG_WRITE (num configs to write) :  1000
+ VMC_NBLOCK (num VMC blocks)              :  1
+ VMC_EQUIL_NSTEP (num equil steps)        :  100
+ VMC_DECORR_PERIOD (length of inner loop) :  10
+ VMC_AVE_PERIOD (hist reduction factor)   :  1
+ VMC_SAMPLING                             :  standard
+ MAKEMOVIE                                :  F
+ FORCES                                   :  F
+ OPT_CYCLES (num optimization cycles)     :  10
+ POSTFIT_VMC (perform post-fit VMC calc)  :  T
+ POSTFIT_KEEP_CFG (keep post-fit VMC cfgs):  F
+ OPT_NOCTF_CYCLES (fixed cutoff cycles)   :  0
+ OPT_INFO (information level)             :  2
+ OPT_JASTROW (opt Jastrow factor)         :  T
+ VM_LINJAS_METHOD                         :  BFGS
+ VM_LINJAS_ITS                            :  -1
+
+ Particles
+ =========
+ Particle name                 Charge        Mass         Spin   Type
+ -------------------------------------------------------------------------
+ 1: Spin-up electron          -1.00000       1.0000000     0.5   Fermion
+ 2: Spin-down electron        -1.00000       1.0000000    -0.5   Fermion
+ -------------------------------------------------------------------------
+
+ Number of diffusion types : 1
+
+ Single-particle groupings
+ -------------------------
+ Spin dep. 0 : (1,2) [F] [E]
+ Spin dep. 1 : (1) (2)
+
+ NB, partitions defining spin-[F]amilies and [E]quivalent particles flagged.
+
+ Particle-pair groupings
+ -----------------------
+ Spin-pair dep. 0 : (1-1,1-2,2-2)
+ Spin-pair dep. 1 : (1-1,2-2) (1-2)
+ Spin-pair dep. 2 : (1-1) (1-2) (2-2)
+
+ Initialize random number generator
+ ==================================
+ Generator                                 :  RANLUX
+ RANLUX luxury level                       :  3
+ p value                                   :  223
+ Value of random seed                      :  561679663
+
+ Initialized with seed derived from timer.
+
+ Reading correlation.data
+ ========================
+ No correlation.data file is present.
+
+ No multideterminant/excitation data supplied.
+ Using ground state defined in xwfn.data file.
+
+ Reading nonlocalized blip wave function and associated data
+ ===========================================================
+ Warning: [READBWF] Both bwfn.data and bwfn.data.bin are present.  Will read
+ the latter.
+
+ Reading binary data file bwfn.data.bin.
+
+ Title:
+ Generating code                           :   PWSCF
+ Method                                    :   DFT
+ DFT functional                            :   unknown
+ Pseudopotential type                      :   unknown
+ Plane-wave cutoff (au)                    : 50.000
+
+ Number of k points                        : 1
+ Max # bands per k point                   : 16
+ Blip grid                                 : 20 by 20 by 32
+ Non-spin-polarized orbital data.
+
+ DFT energy and components (au per primitive cell):
+ Total energy                              : -23.740184480912813
+ Kinetic energy                            : 18.857576811754608
+ Local potential energy                    : -22.459656803503876
+ Non-local potential energy                : 1.6228721967207451
+ Electron-electron energy                  : 6.6816990349881635
+ Ion-ion energy                            : -21.353234918790243
+
+ Complex blip coefficients ==> calculation with K-POINTS.
+ Warning: [READBWF] Complex blip coefficients, but this is just a calculation
+ at Gamma.
+
+ Single determinant :
+
+ Det 1 spin 1           : ground state
+ Det 1 spin 2           : ground state
+ Det 1 coefficient      : 1.00000000
+
+ Pseudopotentials
+ ================
+
+ Ion type 1, atomic no 31, file=ga_pp.data
+ Title:  DF Pseudopotential in real space for Ga
+
+ Number of grid points                   :  1662
+ Pseudo-charge                           :  3.0
+ Local cutoff radius (au)                :  4.148804
+ Non-local cutoff radius (au)            :  3.307371
+ Local potential angular momentum        :  2
+ Deviation from z/r at cutoff radius     :  -.8941266638E-05
+ Non-local potential angular momentum    :  0
+ Deviation from vlocal at cutoff radius  :  0.3311118880E-05
+ Non-local potential angular momentum    :  1
+ Deviation from vlocal at cutoff radius  :  0.3311118880E-05
+
+ Ion type 2, atomic no 7, file=n_pp.data
+ Title:  DF Pseudopotential in real space for N
+
+ Number of grid points                   :  1551
+ Pseudo-charge                           :  5.0
+ Local cutoff radius (au)                :  1.162877
+ Non-local cutoff radius (au)            :  1.162877
+ Local potential angular momentum        :  2
+ Deviation from z/r at cutoff radius     :  -.8988603848E-05
+ Non-local potential angular momentum    :  0
+ Deviation from vlocal at cutoff radius  :  0.7859820474E-05
+ Non-local potential angular momentum    :  1
+ Deviation from vlocal at cutoff radius  :  0.1711047348E-05
+
+ Geometry derived from information in bwfn.data
+ ==============================================
+
+ Simulation cell : 3D periodic (supercell geometry)
+ Primitive cells : 1 x 1 x 1 = 1
+
+ Primitive cell lattice vectors (au)
+ ------------------------------------------------------------------
+               5.963600000000     0.000000000000     0.000000000000
+              -2.981800000000     5.164629098009     0.000000000000
+               0.000000000000     0.000000000000     9.673555560000
+
+ Primitive cell reciprocal lattice vectors (au)
+ ------------------------------------------------------------------
+               1.053589326444     0.608290081238    -0.000000000000
+               0.000000000000     1.216580162475     0.000000000000
+               0.000000000000    -0.000000000000     0.649521809040
+
+ Primitive cell volume                           0.297943403273E+03
+
+ Simulation cell lattice vectors (au)
+ ------------------------------------------------------------------
+               5.963600000000     0.000000000000     0.000000000000
+              -2.981800000000     5.164629098009     0.000000000000
+               0.000000000000     0.000000000000     9.673555560000
+
+ Simulation cell reciprocal lattice vectors (au)
+ ------------------------------------------------------------------
+               1.053589326444     0.608290081238    -0.000000000000
+               0.000000000000     1.216580162475     0.000000000000
+               0.000000000000    -0.000000000000     0.649521809040
+
+ Simulation cell volume                          0.297943403273E+03
+ Radius of sphere inscribed in Wigner-Seitz cell 0.298180000000E+01
+
+
+ Atom Atno  Type  Position (fractional)            Position (Cartesian au)
+ ------------------------------------------------------------------------------
+    1  31   1     0.3333     0.6667     0.0000    -0.0000     3.4431     0.0000
+    2  31   1     0.6667     0.3333     0.5000     2.9818     1.7215     4.8368
+    3   7   2     0.3333     0.6667     0.3782    -0.0000     3.4431     3.6588
+    4   7   2     0.6667     0.3333     0.8782     2.9818     1.7215     8.4956
+
+ Crystal does not appear to have inversion symmetry.
+
+ Neighbour analysis turned off (NEIGHPRINT==0).
+
+
+ Blip setup
+ ==========
+
+ Periodicity : 3
+ Real blip orbitals will be used.
+
+ K POINT ANALYSIS
+   k    kx         ky         kz       use pair edge spec
+   1   0.000000   0.000000   0.000000   T    F    T    G
+
+ Any k points with edge=F give rise to independent states at both k and -k.
+
+ MAPPING ONTO UNIQUE K_S VECTOR:
+   0.00000000  0.00000000  0.00000000 (Cartesian a.u.)
+
+ INSULATING GROUND STATE DETECTED
+ No. of doubly occupied bands at each k point: 8
+
+ Detailed band-occupancy information
+ -----------------------------------
+ K POINT 1  [not part of a (+/-)k pair] (G)
+ k(au):   0.000000000000000E+00   0.000000000000000E+00   0.000000000000000E+00
+ kfrac:   0.000000000000000E+00   0.000000000000000E+00   0.000000000000000E+00
+ Spin 1:
+ Bands occupied at k: 1 2 3 4 5 6 7 8
+ Highest occupied band energy: 0.32190271517696034
+ Bands unoccupied at k: 9 10 11 12 13 14 15 16
+ Lowest unoccupied band energy: 0.40007113467021377
+ Spin 2:
+ Bands occupied at k: 1 2 3 4 5 6 7 8
+ Highest occupied band energy: 0.32190271517696034
+ Bands unoccupied at k: 9 10 11 12 13 14 15 16
+ Lowest unoccupied band energy: 0.40007113467021377
+
+ Expectation values
+ ==================
+ None requested.
+
+ Interactions
+ ============
+ Interaction type: Coulomb
+
+ Setup 3D Ewald interaction.
+
+ No. of G in reciprocal space sum   :  98
+ No. of vectors in real space sum   :  27
+ Maximum |G|^2 (au)                 :  0.28693759E+00
+ Gamma^(1/2) = Gaussian half-width  :  4.19224614E-01
+ Electron self-image term v_M (au)  :  -0.37760532297808896
+
+ Ionic repulsion energy (au/primitive cell)
+ ==========================================
+ EIONION from file  : -21.353234918790
+ Calculated EIONION : -21.353235133938
+
+ Calculated and input nuclear repulsion energies agree.
+
+ General Jastrow setup
+ =====================
+
+ Jastrow factor not found.
+ Generating a default one.
+
+ Title: No title
+ Reading 3 Jastrow factor terms.
+
+ Term 1
+ ------
+ Rank(e)             : 2
+ Rank(n)             : 0
+ e-e basis:
+  Functional basis   : natural power
+  Expansion order    : 9
+ e-e cutoff:
+  Functional basis   : alt polynomial
+  Integer constants:
+   C = 3
+  Channel 1-1:
+   L (optimizable) =  2.97881522E+00 in [2.9818E-01, 2.9818E+00]
+  Channel 1-2:
+   L (optimizable) =  2.97881522E+00 in [2.9818E-01, 2.9818E+00]
+ Linear parameters:
+  Number of linear parameters per channel: 9
+  Channel 1-1:
+   Constraints: 1 equation (0r+0s+0u+1c), 1 parameter determined
+   Info: 8 unspecified parameters added as optimizable
+   c_2 (optimizable) =  0.00000000E+00
+   c_3 (optimizable) =  0.00000000E+00
+   c_4 (optimizable) =  0.00000000E+00
+   c_5 (optimizable) =  0.00000000E+00
+   c_6 (optimizable) =  0.00000000E+00
+   c_7 (optimizable) =  0.00000000E+00
+   c_8 (optimizable) =  0.00000000E+00
+   c_9 (optimizable) =  0.00000000E+00
+  Channel 1-2:
+   Constraints: 1 equation (0r+0s+0u+1c), 1 parameter determined
+   Info: 8 unspecified parameters added as optimizable
+   c_2 (optimizable) =  0.00000000E+00
+   c_3 (optimizable) =  0.00000000E+00
+   c_4 (optimizable) =  0.00000000E+00
+   c_5 (optimizable) =  0.00000000E+00
+   c_6 (optimizable) =  0.00000000E+00
+   c_7 (optimizable) =  0.00000000E+00
+   c_8 (optimizable) =  0.00000000E+00
+   c_9 (optimizable) =  0.00000000E+00
+
+ Term 2
+ ------
+ Rank(e)             : 1
+ Rank(n)             : 1
+ e-n basis:
+  Functional basis   : natural power
+  Expansion order    : 9
+ e-n cutoff:
+  Functional basis   : alt polynomial
+  Integer constants:
+   C = 3
+  Channel 1-n1:
+   L (optimizable) =  2.97881522E+00 in [2.9818E-01, 2.9818E+00]
+  Channel 1-n2:
+   L (optimizable) =  2.97881522E+00 in [2.9818E-01, 2.9818E+00]
+  Channel 1-n3:
+   L (optimizable) =  2.97881522E+00 in [2.9818E-01, 2.9818E+00]
+  Channel 1-n4:
+   L (optimizable) =  2.97881522E+00 in [2.9818E-01, 2.9818E+00]
+ Linear parameters:
+  Number of linear parameters per channel: 9
+  Channel 1-n1:
+   Constraints: 1 equation (0r+0s+0u+1c), 1 parameter determined
+   Info: 8 unspecified parameters added as optimizable
+   c_2 (optimizable) =  0.00000000E+00
+   c_3 (optimizable) =  0.00000000E+00
+   c_4 (optimizable) =  0.00000000E+00
+   c_5 (optimizable) =  0.00000000E+00
+   c_6 (optimizable) =  0.00000000E+00
+   c_7 (optimizable) =  0.00000000E+00
+   c_8 (optimizable) =  0.00000000E+00
+   c_9 (optimizable) =  0.00000000E+00
+  Channel 1-n2:
+   Constraints: 1 equation (0r+0s+0u+1c), 1 parameter determined
+   Info: 8 unspecified parameters added as optimizable
+   c_2 (optimizable) =  0.00000000E+00
+   c_3 (optimizable) =  0.00000000E+00
+   c_4 (optimizable) =  0.00000000E+00
+   c_5 (optimizable) =  0.00000000E+00
+   c_6 (optimizable) =  0.00000000E+00
+   c_7 (optimizable) =  0.00000000E+00
+   c_8 (optimizable) =  0.00000000E+00
+   c_9 (optimizable) =  0.00000000E+00
+  Channel 1-n3:
+   Constraints: 1 equation (0r+0s+0u+1c), 1 parameter determined
+   Info: 8 unspecified parameters added as optimizable
+   c_2 (optimizable) =  0.00000000E+00
+   c_3 (optimizable) =  0.00000000E+00
+   c_4 (optimizable) =  0.00000000E+00
+   c_5 (optimizable) =  0.00000000E+00
+   c_6 (optimizable) =  0.00000000E+00
+   c_7 (optimizable) =  0.00000000E+00
+   c_8 (optimizable) =  0.00000000E+00
+   c_9 (optimizable) =  0.00000000E+00
+  Channel 1-n4:
+   Constraints: 1 equation (0r+0s+0u+1c), 1 parameter determined
+   Info: 8 unspecified parameters added as optimizable
+   c_2 (optimizable) =  0.00000000E+00
+   c_3 (optimizable) =  0.00000000E+00
+   c_4 (optimizable) =  0.00000000E+00
+   c_5 (optimizable) =  0.00000000E+00
+   c_6 (optimizable) =  0.00000000E+00
+   c_7 (optimizable) =  0.00000000E+00
+   c_8 (optimizable) =  0.00000000E+00
+   c_9 (optimizable) =  0.00000000E+00
+
+ Term 3
+ ------
+ Rank(e)             : 2
+ Rank(n)             : 1
+ e-e basis:
+  Functional basis   : natural power
+  Expansion order    : 4 (of 9 in shared basis)
+ e-e cutoff:
+  Functional basis   : none
+ e-n basis:
+  Functional basis   : natural power
+  Expansion order    : 4 (of 9 in shared basis)
+ e-n cutoff:
+  Functional basis   : alt polynomial
+  Integer constants:
+   C = 3
+  Channel 1-n1:
+   L (optimizable) =  2.97881522E+00 in [2.9818E-01, 2.9818E+00]
+  Channel 1-n2:
+   L (optimizable) =  2.97881522E+00 in [2.9818E-01, 2.9818E+00]
+  Channel 1-n3:
+   L (optimizable) =  2.97881522E+00 in [2.9818E-01, 2.9818E+00]
+  Channel 1-n4:
+   L (optimizable) =  2.97881522E+00 in [2.9818E-01, 2.9818E+00]
+ Linear parameters:
+  Number of linear parameters per channel: 64
+  Channel 1-1-n1:
+   Constraints: 45 equations (0r+24s+0u+21c), 38 parameters determined
+   Info: 26 unspecified parameters added as optimizable
+   c_1,2,2 (optimizable) =  0.00000000E+00
+   c_1,3,2 (optimizable) =  0.00000000E+00
+   c_1,3,3 (optimizable) =  0.00000000E+00
+   c_1,4,2 (optimizable) =  0.00000000E+00
+   c_1,4,3 (optimizable) =  0.00000000E+00
+   c_1,4,4 (optimizable) =  0.00000000E+00
+   c_2,3,1 (optimizable) =  0.00000000E+00
+   c_2,4,2 (optimizable) =  0.00000000E+00
+   c_3,1,1 (optimizable) =  0.00000000E+00
+   c_3,2,1 (optimizable) =  0.00000000E+00
+   c_3,2,2 (optimizable) =  0.00000000E+00
+   c_3,3,1 (optimizable) =  0.00000000E+00
+   c_3,3,2 (optimizable) =  0.00000000E+00
+   c_3,3,3 (optimizable) =  0.00000000E+00
+   c_3,4,2 (optimizable) =  0.00000000E+00
+   c_3,4,3 (optimizable) =  0.00000000E+00
+   c_3,4,4 (optimizable) =  0.00000000E+00
+   c_4,1,1 (optimizable) =  0.00000000E+00
+   c_4,2,1 (optimizable) =  0.00000000E+00
+   c_4,2,2 (optimizable) =  0.00000000E+00
+   c_4,3,1 (optimizable) =  0.00000000E+00
+   c_4,3,2 (optimizable) =  0.00000000E+00
+   c_4,3,3 (optimizable) =  0.00000000E+00
+   c_4,4,2 (optimizable) =  0.00000000E+00
+   c_4,4,3 (optimizable) =  0.00000000E+00
+   c_4,4,4 (optimizable) =  0.00000000E+00
+  Channel 1-1-n2:
+   Constraints: 45 equations (0r+24s+0u+21c), 38 parameters determined
+   Info: 26 unspecified parameters added as optimizable
+   c_1,2,2 (optimizable) =  0.00000000E+00
+   c_1,3,2 (optimizable) =  0.00000000E+00
+   c_1,3,3 (optimizable) =  0.00000000E+00
+   c_1,4,2 (optimizable) =  0.00000000E+00
+   c_1,4,3 (optimizable) =  0.00000000E+00
+   c_1,4,4 (optimizable) =  0.00000000E+00
+   c_2,3,1 (optimizable) =  0.00000000E+00
+   c_2,4,2 (optimizable) =  0.00000000E+00
+   c_3,1,1 (optimizable) =  0.00000000E+00
+   c_3,2,1 (optimizable) =  0.00000000E+00
+   c_3,2,2 (optimizable) =  0.00000000E+00
+   c_3,3,1 (optimizable) =  0.00000000E+00
+   c_3,3,2 (optimizable) =  0.00000000E+00
+   c_3,3,3 (optimizable) =  0.00000000E+00
+   c_3,4,2 (optimizable) =  0.00000000E+00
+   c_3,4,3 (optimizable) =  0.00000000E+00
+   c_3,4,4 (optimizable) =  0.00000000E+00
+   c_4,1,1 (optimizable) =  0.00000000E+00
+   c_4,2,1 (optimizable) =  0.00000000E+00
+   c_4,2,2 (optimizable) =  0.00000000E+00
+   c_4,3,1 (optimizable) =  0.00000000E+00
+   c_4,3,2 (optimizable) =  0.00000000E+00
+   c_4,3,3 (optimizable) =  0.00000000E+00
+   c_4,4,2 (optimizable) =  0.00000000E+00
+   c_4,4,3 (optimizable) =  0.00000000E+00
+   c_4,4,4 (optimizable) =  0.00000000E+00
+  Channel 1-1-n3:
+   Constraints: 45 equations (0r+24s+0u+21c), 38 parameters determined
+   Info: 26 unspecified parameters added as optimizable
+   c_1,2,2 (optimizable) =  0.00000000E+00
+   c_1,3,2 (optimizable) =  0.00000000E+00
+   c_1,3,3 (optimizable) =  0.00000000E+00
+   c_1,4,2 (optimizable) =  0.00000000E+00
+   c_1,4,3 (optimizable) =  0.00000000E+00
+   c_1,4,4 (optimizable) =  0.00000000E+00
+   c_2,3,1 (optimizable) =  0.00000000E+00
+   c_2,4,2 (optimizable) =  0.00000000E+00
+   c_3,1,1 (optimizable) =  0.00000000E+00
+   c_3,2,1 (optimizable) =  0.00000000E+00
+   c_3,2,2 (optimizable) =  0.00000000E+00
+   c_3,3,1 (optimizable) =  0.00000000E+00
+   c_3,3,2 (optimizable) =  0.00000000E+00
+   c_3,3,3 (optimizable) =  0.00000000E+00
+   c_3,4,2 (optimizable) =  0.00000000E+00
+   c_3,4,3 (optimizable) =  0.00000000E+00
+   c_3,4,4 (optimizable) =  0.00000000E+00
+   c_4,1,1 (optimizable) =  0.00000000E+00
+   c_4,2,1 (optimizable) =  0.00000000E+00
+   c_4,2,2 (optimizable) =  0.00000000E+00
+   c_4,3,1 (optimizable) =  0.00000000E+00
+   c_4,3,2 (optimizable) =  0.00000000E+00
+   c_4,3,3 (optimizable) =  0.00000000E+00
+   c_4,4,2 (optimizable) =  0.00000000E+00
+   c_4,4,3 (optimizable) =  0.00000000E+00
+   c_4,4,4 (optimizable) =  0.00000000E+00
+  Channel 1-1-n4:
+   Constraints: 45 equations (0r+24s+0u+21c), 38 parameters determined
+   Info: 26 unspecified parameters added as optimizable
+   c_1,2,2 (optimizable) =  0.00000000E+00
+   c_1,3,2 (optimizable) =  0.00000000E+00
+   c_1,3,3 (optimizable) =  0.00000000E+00
+   c_1,4,2 (optimizable) =  0.00000000E+00
+   c_1,4,3 (optimizable) =  0.00000000E+00
+   c_1,4,4 (optimizable) =  0.00000000E+00
+   c_2,3,1 (optimizable) =  0.00000000E+00
+   c_2,4,2 (optimizable) =  0.00000000E+00
+   c_3,1,1 (optimizable) =  0.00000000E+00
+   c_3,2,1 (optimizable) =  0.00000000E+00
+   c_3,2,2 (optimizable) =  0.00000000E+00
+   c_3,3,1 (optimizable) =  0.00000000E+00
+   c_3,3,2 (optimizable) =  0.00000000E+00
+   c_3,3,3 (optimizable) =  0.00000000E+00
+   c_3,4,2 (optimizable) =  0.00000000E+00
+   c_3,4,3 (optimizable) =  0.00000000E+00
+   c_3,4,4 (optimizable) =  0.00000000E+00
+   c_4,1,1 (optimizable) =  0.00000000E+00
+   c_4,2,1 (optimizable) =  0.00000000E+00
+   c_4,2,2 (optimizable) =  0.00000000E+00
+   c_4,3,1 (optimizable) =  0.00000000E+00
+   c_4,3,2 (optimizable) =  0.00000000E+00
+   c_4,3,3 (optimizable) =  0.00000000E+00
+   c_4,4,2 (optimizable) =  0.00000000E+00
+   c_4,4,3 (optimizable) =  0.00000000E+00
+   c_4,4,4 (optimizable) =  0.00000000E+00
+  Channel 1-2-n1:
+   Constraints: 45 equations (0r+24s+0u+21c), 38 parameters determined
+   Info: 26 unspecified parameters added as optimizable
+   c_1,2,2 (optimizable) =  0.00000000E+00
+   c_1,3,2 (optimizable) =  0.00000000E+00
+   c_1,3,3 (optimizable) =  0.00000000E+00
+   c_1,4,2 (optimizable) =  0.00000000E+00
+   c_1,4,3 (optimizable) =  0.00000000E+00
+   c_1,4,4 (optimizable) =  0.00000000E+00
+   c_2,3,1 (optimizable) =  0.00000000E+00
+   c_2,4,2 (optimizable) =  0.00000000E+00
+   c_3,1,1 (optimizable) =  0.00000000E+00
+   c_3,2,1 (optimizable) =  0.00000000E+00
+   c_3,2,2 (optimizable) =  0.00000000E+00
+   c_3,3,1 (optimizable) =  0.00000000E+00
+   c_3,3,2 (optimizable) =  0.00000000E+00
+   c_3,3,3 (optimizable) =  0.00000000E+00
+   c_3,4,2 (optimizable) =  0.00000000E+00
+   c_3,4,3 (optimizable) =  0.00000000E+00
+   c_3,4,4 (optimizable) =  0.00000000E+00
+   c_4,1,1 (optimizable) =  0.00000000E+00
+   c_4,2,1 (optimizable) =  0.00000000E+00
+   c_4,2,2 (optimizable) =  0.00000000E+00
+   c_4,3,1 (optimizable) =  0.00000000E+00
+   c_4,3,2 (optimizable) =  0.00000000E+00
+   c_4,3,3 (optimizable) =  0.00000000E+00
+   c_4,4,2 (optimizable) =  0.00000000E+00
+   c_4,4,3 (optimizable) =  0.00000000E+00
+   c_4,4,4 (optimizable) =  0.00000000E+00
+  Channel 1-2-n2:
+   Constraints: 45 equations (0r+24s+0u+21c), 38 parameters determined
+   Info: 26 unspecified parameters added as optimizable
+   c_1,2,2 (optimizable) =  0.00000000E+00
+   c_1,3,2 (optimizable) =  0.00000000E+00
+   c_1,3,3 (optimizable) =  0.00000000E+00
+   c_1,4,2 (optimizable) =  0.00000000E+00
+   c_1,4,3 (optimizable) =  0.00000000E+00
+   c_1,4,4 (optimizable) =  0.00000000E+00
+   c_2,3,1 (optimizable) =  0.00000000E+00
+   c_2,4,2 (optimizable) =  0.00000000E+00
+   c_3,1,1 (optimizable) =  0.00000000E+00
+   c_3,2,1 (optimizable) =  0.00000000E+00
+   c_3,2,2 (optimizable) =  0.00000000E+00
+   c_3,3,1 (optimizable) =  0.00000000E+00
+   c_3,3,2 (optimizable) =  0.00000000E+00
+   c_3,3,3 (optimizable) =  0.00000000E+00
+   c_3,4,2 (optimizable) =  0.00000000E+00
+   c_3,4,3 (optimizable) =  0.00000000E+00
+   c_3,4,4 (optimizable) =  0.00000000E+00
+   c_4,1,1 (optimizable) =  0.00000000E+00
+   c_4,2,1 (optimizable) =  0.00000000E+00
+   c_4,2,2 (optimizable) =  0.00000000E+00
+   c_4,3,1 (optimizable) =  0.00000000E+00
+   c_4,3,2 (optimizable) =  0.00000000E+00
+   c_4,3,3 (optimizable) =  0.00000000E+00
+   c_4,4,2 (optimizable) =  0.00000000E+00
+   c_4,4,3 (optimizable) =  0.00000000E+00
+   c_4,4,4 (optimizable) =  0.00000000E+00
+  Channel 1-2-n3:
+   Constraints: 45 equations (0r+24s+0u+21c), 38 parameters determined
+   Info: 26 unspecified parameters added as optimizable
+   c_1,2,2 (optimizable) =  0.00000000E+00
+   c_1,3,2 (optimizable) =  0.00000000E+00
+   c_1,3,3 (optimizable) =  0.00000000E+00
+   c_1,4,2 (optimizable) =  0.00000000E+00
+   c_1,4,3 (optimizable) =  0.00000000E+00
+   c_1,4,4 (optimizable) =  0.00000000E+00
+   c_2,3,1 (optimizable) =  0.00000000E+00
+   c_2,4,2 (optimizable) =  0.00000000E+00
+   c_3,1,1 (optimizable) =  0.00000000E+00
+   c_3,2,1 (optimizable) =  0.00000000E+00
+   c_3,2,2 (optimizable) =  0.00000000E+00
+   c_3,3,1 (optimizable) =  0.00000000E+00
+   c_3,3,2 (optimizable) =  0.00000000E+00
+   c_3,3,3 (optimizable) =  0.00000000E+00
+   c_3,4,2 (optimizable) =  0.00000000E+00
+   c_3,4,3 (optimizable) =  0.00000000E+00
+   c_3,4,4 (optimizable) =  0.00000000E+00
+   c_4,1,1 (optimizable) =  0.00000000E+00
+   c_4,2,1 (optimizable) =  0.00000000E+00
+   c_4,2,2 (optimizable) =  0.00000000E+00
+   c_4,3,1 (optimizable) =  0.00000000E+00
+   c_4,3,2 (optimizable) =  0.00000000E+00
+   c_4,3,3 (optimizable) =  0.00000000E+00
+   c_4,4,2 (optimizable) =  0.00000000E+00
+   c_4,4,3 (optimizable) =  0.00000000E+00
+   c_4,4,4 (optimizable) =  0.00000000E+00
+  Channel 1-2-n4:
+   Constraints: 45 equations (0r+24s+0u+21c), 38 parameters determined
+   Info: 26 unspecified parameters added as optimizable
+   c_1,2,2 (optimizable) =  0.00000000E+00
+   c_1,3,2 (optimizable) =  0.00000000E+00
+   c_1,3,3 (optimizable) =  0.00000000E+00
+   c_1,4,2 (optimizable) =  0.00000000E+00
+   c_1,4,3 (optimizable) =  0.00000000E+00
+   c_1,4,4 (optimizable) =  0.00000000E+00
+   c_2,3,1 (optimizable) =  0.00000000E+00
+   c_2,4,2 (optimizable) =  0.00000000E+00
+   c_3,1,1 (optimizable) =  0.00000000E+00
+   c_3,2,1 (optimizable) =  0.00000000E+00
+   c_3,2,2 (optimizable) =  0.00000000E+00
+   c_3,3,1 (optimizable) =  0.00000000E+00
+   c_3,3,2 (optimizable) =  0.00000000E+00
+   c_3,3,3 (optimizable) =  0.00000000E+00
+   c_3,4,2 (optimizable) =  0.00000000E+00
+   c_3,4,3 (optimizable) =  0.00000000E+00
+   c_3,4,4 (optimizable) =  0.00000000E+00
+   c_4,1,1 (optimizable) =  0.00000000E+00
+   c_4,2,1 (optimizable) =  0.00000000E+00
+   c_4,2,2 (optimizable) =  0.00000000E+00
+   c_4,3,1 (optimizable) =  0.00000000E+00
+   c_4,3,2 (optimizable) =  0.00000000E+00
+   c_4,3,3 (optimizable) =  0.00000000E+00
+   c_4,4,2 (optimizable) =  0.00000000E+00
+   c_4,4,3 (optimizable) =  0.00000000E+00
+   c_4,4,4 (optimizable) =  0.00000000E+00
+
+
+ Finished General Jastrow setup.
+
+ Initial Jastrow set is empty.
+ Will not use a Jastrow factor until needed.
+
+ Non-local integration grids
+ ===========================
+ Ion type            :  1
+ Non-local grid no.  :  4
+ Lexact              :  5
+ Number of points    :  12
+
+ Ion type            :  2
+ Non-local grid no.  :  4
+ Lexact              :  5
+ Number of points    :  12
+
+
+ Setup complete.
+
+ Time taken in setup    : : :        0.0000
+
+ =========================================================
+ PERFORMING VMC CONFIGURATION-GENERATION CALCULATION No. 1
+ =========================================================
+
+
+ BEGIN VMC CALCULATION
+ =====================
+
+ No of up/down spin electrons initially associated with each ion:
+ ----------------------------------------------------------------
+ Ion,    # up-spin, # down-spin
+ 1            2          1
+ 2            1          2
+ 3            3          2
+ 4            2          3
+ [Use edist_by_ion/edist_by_iontype in input to change this]
+
+
+ Running VMC equilibration (100 moves).
+  Performing time-step optimization.
+  Optimized DTVMC:  5.8401E-01
+ Done. [total CPU time: 0s]
+
+ Kinetic energy check performed.
+  Slater determinants - gradient: optimal, Laplacian: optimal.
+ End of report.
+
+ Starting VMC.
+
+ =========================================================================
+ In block : 1
+
+ Acceptance ratio         (%)  =  45.0438
+ Diffusion constant  (Bohr^2)  = 5.9128E-01
+ Correlation time     (steps)  = 1.0279E+00 +- 1.2163E-01
+ Efficiency      (au^-2 s^-1)  = Infinity
+ Number of VMC steps           = 1000
+
+  Block average energies (au per simulation cell)
+
+  Total energy                       (au) =         -23.230508643336
+  Standard error                        +/-           0.078040754910
+
+  Kinetic energy KEI (used in Total) (au) =          18.493207080130
+  Standard error                        +/-           0.272485699184
+
+  Kinetic energy TI                  (au) =          20.456268009075
+  Standard error                        +/-           1.984858900467
+
+  Kinetic energy FISQ                (au) =          22.419328938020
+  Standard error                        +/-           4.096820511604
+
+  Potential energy                   (au) =         -20.370480589528
+  Standard error                        +/-           0.272761728557
+
+  Ewald e-e interaction              (au) =           0.066784886101
+  Standard error                        +/-           0.100714557161
+
+  Ewald e-i interaction (local)      (au) =         -20.748317540677
+  Standard error                        +/-           0.264370246896
+
+  Ewald e-i interaction (non-local)  (au) =           0.311052065047
+  Standard error                        +/-           0.191328619163
+
+  Constant energy contributions      (au) =         -21.353235133938
+
+  Var. of local energy per sim. cell (au) =           6.090359426996
+  Standard error                        +/-           0.733047638756
+
+
+ Time taken in block    : : :        0.0000
+
+ =========================================================================
+ FINAL RESULT:
+
+  VMC energy (au)    Standard error      Correction for serial correlation
+
+ -23.230508643336 +/- 0.078040754910      No correction
+ -23.230508643336 +/- 0.079123167495      Correlation time method
+ -23.230508643336 +/- 0.085694654728      On-the-fly reblocking method
+
+  Sample variance of E_L (au^2/sim.cell) : 6.090359426996
+
+ =========================================================================
+
+
+ *     *     *     *     *     *     *     *     *     *     *     *
+
+ =========================================
+ PERFORMING OPTIMIZATION CALCULATION No. 1
+ =========================================
+
+ Performing variance minimization using Varmin_linjas
+ ====================================================
+ Number of linear parameters in Jastrow : 256
+ G arrays allocated with size           : 4.09 GiB
+ Random number generator reset to state in config.in.
+
+ Number of configs loaded               : 1000
+ Constructing G arrays.

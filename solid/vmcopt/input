@@ -2,6 +2,8 @@
 # CASINO input file #
 #-------------------#
 
+random_seed=12345
+
 # SYSTEM
 neu               : 8              #*! Number of up electrons (Integer)
 ned               : 8              #*! Number of down electrons (Integer)
@@ -36,7 +38,7 @@ use_tmove         : T              #*! Casula nl pp for DMC (Boolean)
 
 # OPTIMIZATION
 opt_method        : varmin_linjas  #*! Opt method (varmin/madmin/emin/...)
-opt_cycles        : 10              #*! Number of optimization cycles (Integer)
+opt_cycles        : 3              #*! Number of optimization cycles (Integer)
 opt_jastrow       : T              #*! Optimize Jastrow factor (Boolean)
 opt_det_coeff     : F              #*! Optimize determinant coeffs (Boolean)
 opt_backflow      : F              #*! Optimize backflow parameters (Boolean)

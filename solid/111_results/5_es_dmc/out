@@ -1,0 +1,653 @@
+ ------------------------------------------------------------------------------
+
+                   #####
+                  ##   ##    ##     ####   ##  #   ##   ####
+                  ##        ####   ##      ##  ##  ##  ##  ##
+                  ##       ##  ##   ####   ##  ### ##  ##  ##
+                  ##       ######      ##  ##  ## ###  ##  ##
+                  ##   ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
+                   #####   ##  ##   ####   ##  ##   #   ####
+
+                     The Cambridge Quantum Monte Carlo Code
+        CASINO v2.13.370+dirty [maezono@m12pc01.local] (21 January 2015)
+
+      Main Authors : R.J.Needs, M.D.Towler, N.D.Drummond and P.Lopez Rios
+
+            Theory of Condensed Matter Group, Cavendish Laboratory,
+                University of Cambridge, Cambridge, CB3 OHE, UK.
+
+                     CASINO web page: vallico.net/casinoqmc
+
+                      Current contact: mdt26 at cam.ac.uk
+
+ ------------------------------------------------------------------------------
+ Started 2015/01/21 11:23:17.085
+
+ Sequential run: not using MPI.
+
+ General input parameters
+ ========================
+ NEU (num up spin electrons)              :  8
+ NED (num down spin electrons)            :  8
+ RUNTYPE (type of run)                    :  vmc_dmc
+ PSI_S  (form for [anti]symmetrizing wfn) :  slater
+ ATOM_BASIS_TYPE (atom-centred orb basis) :  blip
+ INTERACTION (interaction type)           :  ewald
+ TESTRUN (read input data,print and stop) :  F
+ PERIODIC                                 :  T
+ NPCELLS (num primitive cells)            :  1
+ COMPLEX_WF (complex Slater wave fn.)     :  F
+ NEIGHPRINT (neighbour analysis)          :  0
+ USE_JASTROW (use Jastrow factor)         :  T
+ BACKFLOW (use backflow corrections)      :  F
+ DBARRC (DBAR recalculation period)       :  100000
+ NON_LOCAL_GRID (NL integration grid)     :  4
+ E_OFFSET (energy offset)                 :  0.0000
+ ESUPERCELL                               :  F
+ WRITE_BINARY_BLIPS (create bwfn.data.bin):  T
+ CONV_BINARY_BLIPS (blip b1 --> bin)      :  F
+ SPARSE                                   :  F
+ CHECKPOINT (checkpointing level)         :  1
+ CHECKPOINT_NCPU (chkpnt group size)      :  1
+ CON_LOC (Dir to read/write config.*)     :  ./
+ RELATIVISTIC                             :  F
+
+ VMC/DMC input parameters
+ ========================
+ NEWRUN (start new run)                   :  T
+ VMC_METHOD (choice of VMC algorithm)     :  1
+ DTVMC (VMC timestep)                     :  1.0000E-01
+ OPT_DTVMC (VMC timestep optimization)    :  1
+ VMC_NSTEP (num VMC steps)                :  5000
+ VMC_NCONFIG_WRITE (num configs to write) :  512
+ VMC_NBLOCK (num VMC blocks)              :  1
+ VMC_EQUIL_NSTEP (num equil steps)        :  1000
+ VMC_DECORR_PERIOD (length of inner loop) :  10
+ VMC_AVE_PERIOD (hist reduction factor)   :  1
+ VMC_SAMPLING                             :  standard
+ DMC_TARGET_WEIGHT                        :  512.00
+ DMC_MD                                   :  F
+ DMC_EQUIL_NSTEP (num equil steps)        :  100
+ DMC_EQUIL_NBLOCK (num blocks)            :  1
+ DMC_STATS_NSTEP (num stats steps)        :  500
+ DMC_STATS_NBLOCK (num blocks)            :  1
+ DMC_DECORR_PERIOD (length of inner loop) :  1
+ DMC_AVE_PERIOD (hist reduction factor)   :  1
+ DMC_TRIP_WEIGHT (catastrophe thres)      :  0.00
+ EBEST_AV_WINDOW (running av for energy)  :  25
+ DMC_METHOD (choice of DMC algorithm)     :  1
+ DMC_REWEIGHT_CONF (Update weights)       :  F
+ DMC_SPACEWARPING (adjust e to new wfn)   :  F
+ REDIST_GRP_SIZE (size of redist groups)  :  500
+ DTDMC (DMC timesteps)                    :  0.01000
+ TPDMC (DMC T_p parameter)                :  0
+ CEREFDMC (constant for EREF [DMC])       :  1.000
+ LIMDMC (limit type for drift vel/energy) :  2
+ NUCLEUS_GF_MODS (DMC GF mods for nuclei) :  T
+ IACCUM (flag for statistics run [DMC])   :  T
+ IBRAN (flag to enable branching [DMC])   :  T
+ LWDMC (flag for enabling weighted DMC)   :  F
+ LWDMC_FIXPOP (fixed population LWDMC)    :  F
+ DMC_NORM_CONSERVE                        :  F
+ DMC_POPRENORM (renormalize config popn)  :  F
+ GROWTH_ESTIMATOR (calc growth estimator) :  F
+ USE_TMOVE                                :  T
+ FUTURE WALKING                           :  F
+ SMALL_TRANSFER (redist. transf. size)    :  F
+ ORBBUF (orbital buffering)               :  T
+ JASBUF (Jastrow buffering)               :  T
+ MAKEMOVIE                                :  F
+ FORCES                                   :  F
+
+ Particles
+ =========
+ Particle name                 Charge        Mass         Spin   Type
+ -------------------------------------------------------------------------
+ 1: Spin-up electron          -1.00000       1.0000000     0.5   Fermion
+ 2: Spin-down electron        -1.00000       1.0000000    -0.5   Fermion
+ -------------------------------------------------------------------------
+
+ Number of diffusion types : 1
+
+ Single-particle groupings
+ -------------------------
+ Spin dep. 0 : (1,2) [F] [E]
+ Spin dep. 1 : (1) (2)
+
+ NB, partitions defining spin-[F]amilies and [E]quivalent particles flagged.
+
+ Particle-pair groupings
+ -----------------------
+ Spin-pair dep. 0 : (1-1,1-2,2-2)
+ Spin-pair dep. 1 : (1-1,2-2) (1-2)
+ Spin-pair dep. 2 : (1-1) (1-2) (2-2)
+
+ Initialize random number generator
+ ==================================
+ Generator                                 :  RANLUX
+ RANLUX luxury level                       :  3
+ p value                                   :  223
+ Value of random seed                      :  314159265
+
+ Initialized from default internal seed.
+
+ Reading correlation.data
+ ========================
+ Header:
+   GaN/ES/111
+ Version of correlation.data : 1
+ A Jastrow factor is present in correlation.data.
+ A backflow function is present in correlation.data.
+ Multideterminant/excitation data is present in correlation.data.
+
+ Reading multideterminant/excitation data from correlation.data.
+ ===============================================================
+ Title: GaN/ES/111
+ A single determinant with excitations will be used.
+ Excitation specifications (see manual):
+ DET 1 1 PR 8 1 9 1
+
+ Reading nonlocalized blip wave function and associated data
+ ===========================================================
+ Reading plain data file bwfn.data.
+ Writing binary file bwfn.data.bin.
+
+ Title:
+ Generating code                           :   PWSCF
+ Method                                    :   DFT
+ DFT functional                            :   unknown
+ Pseudopotential type                      :   unknown
+ Plane-wave cutoff (au)                    : 50.000
+
+ Number of k points                        : 1
+ Max # bands per k point                   : 16
+ Blip grid                                 : 20 by 20 by 32
+ Non-spin-polarized orbital data.
+
+ DFT energy and components (au per primitive cell):
+ Total energy                              : -23.7401758954
+ Kinetic energy                            : 18.8575697690
+ Local potential energy                    : -22.4596449153
+ Non-local potential energy                : 1.6228714789
+ Electron-electron energy                  : 6.6816935003
+ Ion-ion energy                            : -21.3532349188
+
+ Complex blip coefficients ==> calculation with K-POINTS.
+ Warning: [READBWF] Complex blip coefficients, but this is just a calculation
+ at Gamma.
+
+ Single determinant :
+
+ Det 1 spin 1           : e promoted from band 8 kp 1 to band 9 kp 1
+ Det 1 spin 2           : ground state
+ Det 1 coefficient      : 1.00000000
+
+ Pseudopotentials
+ ================
+
+ Ion type 1, atomic no 31, file=ga_pp.data
+ Title:  DF Pseudopotential in real space for Ga
+
+ Number of grid points                   :  1662
+ Pseudo-charge                           :  3.0
+ Local cutoff radius (au)                :  4.148804
+ Non-local cutoff radius (au)            :  3.307371
+ Local potential angular momentum        :  2
+ Deviation from z/r at cutoff radius     :  -.8941266638E-05
+ Non-local potential angular momentum    :  0
+ Deviation from vlocal at cutoff radius  :  0.3311118880E-05
+ Non-local potential angular momentum    :  1
+ Deviation from vlocal at cutoff radius  :  0.3311118880E-05
+
+ Ion type 2, atomic no 7, file=n_pp.data
+ Title:  DF Pseudopotential in real space for N
+
+ Number of grid points                   :  1551
+ Pseudo-charge                           :  5.0
+ Local cutoff radius (au)                :  1.162877
+ Non-local cutoff radius (au)            :  1.162877
+ Local potential angular momentum        :  2
+ Deviation from z/r at cutoff radius     :  -.8988603848E-05
+ Non-local potential angular momentum    :  0
+ Deviation from vlocal at cutoff radius  :  0.7859820474E-05
+ Non-local potential angular momentum    :  1
+ Deviation from vlocal at cutoff radius  :  0.1711047348E-05
+
+ Geometry derived from information in bwfn.data
+ ==============================================
+
+ Simulation cell : 3D periodic (supercell geometry)
+ Primitive cells : 1 x 1 x 1 = 1
+
+ Primitive cell lattice vectors (au)
+ ------------------------------------------------------------------
+               5.963600000000     0.000000000000     0.000000000000
+              -2.981800000000     5.164629098009     0.000000000000
+               0.000000000000     0.000000000000     9.673555560000
+
+ Primitive cell reciprocal lattice vectors (au)
+ ------------------------------------------------------------------
+               1.053589326444     0.608290081238    -0.000000000000
+               0.000000000000     1.216580162475     0.000000000000
+               0.000000000000    -0.000000000000     0.649521809040
+
+ Primitive cell volume                           0.297943403273E+03
+
+ Simulation cell lattice vectors (au)
+ ------------------------------------------------------------------
+               5.963600000000     0.000000000000     0.000000000000
+              -2.981800000000     5.164629098009     0.000000000000
+               0.000000000000     0.000000000000     9.673555560000
+
+ Simulation cell reciprocal lattice vectors (au)
+ ------------------------------------------------------------------
+               1.053589326444     0.608290081238    -0.000000000000
+               0.000000000000     1.216580162475     0.000000000000
+               0.000000000000    -0.000000000000     0.649521809040
+
+ Simulation cell volume                          0.297943403273E+03
+ Radius of sphere inscribed in Wigner-Seitz cell 0.298180000000E+01
+
+
+ Atom Atno  Type  Position (fractional)            Position (Cartesian au)
+ ------------------------------------------------------------------------------
+    1  31   1     0.3333     0.6667     0.0000    -0.0000     3.4431     0.0000
+    2  31   1     0.6667     0.3333     0.5000     2.9818     1.7215     4.8368
+    3   7   2     0.3333     0.6667     0.3782    -0.0000     3.4431     3.6588
+    4   7   2     0.6667     0.3333     0.8782     2.9818     1.7215     8.4956
+
+ Crystal does not appear to have inversion symmetry.
+
+ Neighbour analysis turned off (NEIGHPRINT==0).
+
+
+ Blip setup
+ ==========
+
+ Periodicity : 3
+ Real blip orbitals will be used.
+
+ K POINT ANALYSIS
+   k    kx         ky         kz       use pair edge
+   1   0.000000   0.000000   0.000000   T    F    T
+
+ Any k points with edge=F give rise to independent states at both k and -k.
+
+ MAPPING ONTO UNIQUE K_S VECTOR:
+   0.00000000  0.00000000  0.00000000 (Cartesian a.u.)
+
+ Detailed band-occupancy information
+ -----------------------------------
+ K POINT 1  [(  0.000000,  0.000000,  0.000000)  -> BZ edge]
+ Spin 1:
+ Bands occupied at k: 1 2 3 4 5 6 7 9
+ Highest occupied band energy: 0.40007100287643393
+ Bands unoccupied at k: 8 10 11 12 13 14 15 16
+ Lowest unoccupied band energy: 0.32190295101685629
+ Spin 2:
+ Bands occupied at k: 1 2 3 4 5 6 7 8
+ Highest occupied band energy: 0.32190295101685629
+ Bands unoccupied at k: 9 10 11 12 13 14 15 16
+ Lowest unoccupied band energy: 0.40007100287643393
+
+ Expectation values
+ ==================
+ None requested.
+
+ Interactions
+ ============
+ Interaction type: Coulomb
+
+ Setup 3D Ewald interaction.
+
+ No. of G in reciprocal space sum   :  98
+ No. of vectors in real space sum   :  27
+ Maximum |G|^2 (au)                 :  0.28693759E+00
+ Gamma^(1/2) = Gaussian half-width  :  4.19224614E-01
+ Electron self-image term (au)      :  -0.37760532297808896
+
+ Ionic repulsion energy (au/primitive cell)
+ ==========================================
+ EIONION from file  : -21.353234918790
+ Calculated EIONION : -21.353235133938
+
+ Calculated and input nuclear repulsion energies agree.
+
+ Jastrow factor
+ ==============
+ Reading Jastrow factor from correlation.data file.
+
+ Title: GaN/ES/111
+
+ Truncation order                   :  3
+
+ U term:
+  SET 1
+   Spherical harmonic l             :  0
+   Spherical harmonic m             :  0
+   Expansion order (N_u)            :  6
+   Spin dependence                  :  1
+   Cutoff             (optimizable) :  2.981797018200000E+00
+   alpha_0,1          (optimizable) :  1.115236926817473E-02
+   alpha_2,1          (optimizable) :  3.374288826281899E-03
+   alpha_3,1          (optimizable) : -2.624031683983745E-03
+   alpha_4,1          (optimizable) :  3.710472403295818E-03
+   alpha_5,1          (optimizable) : -2.208203197025251E-03
+   alpha_6,1          (optimizable) :  5.086261724857584E-04
+   alpha_0,2          (optimizable) :  1.861902963806972E-02
+   alpha_2,2          (optimizable) :  2.655528855827787E-03
+   alpha_3,2          (optimizable) :  3.784014054843176E-04
+   alpha_4,2          (optimizable) :  3.503928460835865E-04
+   alpha_5,2          (optimizable) : -3.988327258286973E-04
+   alpha_6,2          (optimizable) :  1.866305725958554E-04
+   No. of parameters in set         :  12
+   (In addition to the cutoff length.)
+
+ Chi term:
+  Number of sets                    :  2
+  SET 1:
+   Spherical harmonic l             :  0
+   Spherical harmonic m             :  0
+   Number of atoms in set           :  2
+   The atoms are:
+    1    2
+   Electron-nucleus cusp not imposed in Jastrow
+   Expansion order (N_chi)          :  6
+   Spin dependence                  :  1
+   Cutoff             (optimizable) :  2.981797018200000E+00
+   beta_0,1,1         (optimizable) :  1.412722311864395E-03
+   beta_2,1,1         (optimizable) :  3.483021916122134E-02
+   beta_3,1,1         (optimizable) : -7.868054105133612E-02
+   beta_4,1,1         (optimizable) :  7.039934201165143E-02
+   beta_5,1,1         (optimizable) : -2.712002168021773E-02
+   beta_6,1,1         (optimizable) :  3.759208346881171E-03
+   beta_0,2,1         (optimizable) :  1.137676021637174E-03
+   beta_2,2,1         (optimizable) :  3.512820820078011E-02
+   beta_3,2,1         (optimizable) : -8.406457785028391E-02
+   beta_4,2,1         (optimizable) :  8.065904890756626E-02
+   beta_5,2,1         (optimizable) : -3.249664700800180E-02
+   beta_6,2,1         (optimizable) :  4.696290260665836E-03
+   No. of parameters in set         :  12
+   (In addition to the cutoff length.)
+  SET 2:
+   Spherical harmonic l             :  0
+   Spherical harmonic m             :  0
+   Number of atoms in set           :  2
+   The atoms are:
+    3    4
+   Electron-nucleus cusp not imposed in Jastrow
+   Expansion order (N_chi)          :  6
+   Spin dependence                  :  1
+   Cutoff             (optimizable) :  2.981797018200000E+00
+   beta_0,1,2         (optimizable) : -2.193712391265854E-02
+   beta_2,1,2         (optimizable) :  8.059925095809753E-03
+   beta_3,1,2         (optimizable) : -3.872502429626647E-02
+   beta_4,1,2         (optimizable) :  3.745846961752144E-02
+   beta_5,1,2         (optimizable) : -1.636237420708222E-02
+   beta_6,1,2         (optimizable) :  2.544757156854391E-03
+   beta_0,2,2         (optimizable) : -2.435573147857640E-02
+   beta_2,2,2         (optimizable) :  2.401455486462693E-02
+   beta_3,2,2         (optimizable) : -7.196199495688164E-02
+   beta_4,2,2         (optimizable) :  6.463390880895201E-02
+   beta_5,2,2         (optimizable) : -2.602941453285364E-02
+   beta_6,2,2         (optimizable) :  3.506122932664450E-03
+   No. of parameters in set         :  12
+   (In addition to the cutoff length.)
+
+ F term:
+  Number of sets                    :  2
+  SET 1:
+   Number of atoms in set           :  2
+   The atoms are:
+    1    2
+   Additional constraints applied to avoid duplicating u.
+   Additional constraints applied to avoid duplicating chi.
+   Expansion order (N_f_eN)         :  2
+   Expansion order (N_f_ee)         :  2
+   Spin dependence                       :  1
+   Cutoff             (optimizable) :  1.490898509100000E+00
+   gamma_2,2,0,1,1    (optimizable) :  2.514866324772029E+00
+   gamma_1,0,2,1,1    (optimizable) : -2.580456189642556E-02
+   gamma_1,1,2,1,1    (optimizable) : -1.016021158409064E+00
+   gamma_2,1,2,1,1    (optimizable) :  1.333980566187448E-01
+   gamma_2,2,2,1,1    (optimizable) :  9.447668030865958E-01
+   gamma_2,2,0,2,1    (optimizable) : -9.955525748538765E+00
+   gamma_1,0,2,2,1    (optimizable) : -1.058319758341203E+00
+   gamma_1,1,2,2,1    (optimizable) :  2.657966598119644E-01
+   gamma_2,1,2,2,1    (optimizable) :  6.798929887610002E-01
+   gamma_2,2,2,2,1    (optimizable) :  7.297510527346025E-01
+   No. of parameters in set         :  10
+   (In addition to the cutoff length.)
+  SET 2:
+   Number of atoms in set           :  2
+   The atoms are:
+    3    4
+   Additional constraints applied to avoid duplicating u.
+   Additional constraints applied to avoid duplicating chi.
+   Expansion order (N_f_eN)         :  2
+   Expansion order (N_f_ee)         :  2
+   Spin dependence                       :  1
+   Cutoff             (optimizable) :  1.490898509100000E+00
+   gamma_2,2,0,1,2    (optimizable) :  9.522455970444106E-02
+   gamma_1,0,2,1,2    (optimizable) : -2.883099305119187E-05
+   gamma_1,1,2,1,2    (optimizable) : -2.640915279432486E-02
+   gamma_2,1,2,1,2    (optimizable) : -1.827753623020867E-02
+   gamma_2,2,2,1,2    (optimizable) :  4.117127904138399E-02
+   gamma_2,2,0,2,2    (optimizable) : -2.010415044630001E-01
+   gamma_1,0,2,2,2    (optimizable) : -3.545790710162638E-03
+   gamma_1,1,2,2,2    (optimizable) :  6.667977109812250E-02
+   gamma_2,1,2,2,2    (optimizable) : -8.139784881210867E-02
+   gamma_2,2,2,2,2    (optimizable) :  1.704402677003419E-01
+   No. of parameters in set         :  10
+   (In addition to the cutoff length.)
+
+ Finished reading Jastrow factor from correlation.data.
+
+ Imposed symmetry and no-cusp constraints on gamma array.
+ Checked that gamma array satisfies its constraints.
+ Polynomials constructed.
+ Checked that cusp and cutoff conditions are satisfied.
+
+ Finished Jastrow setup.
+
+ Non-local integration grids
+ ===========================
+ Ion type            :  1
+ Non-local grid no.  :  4
+ Lexact              :  5
+ Number of points    :  12
+
+ Ion type            :  2
+ Non-local grid no.  :  4
+ Lexact              :  5
+ Number of points    :  12
+
+
+ Setup complete.
+
+ Time taken in setup    : : :        0.8200
+
+ ======================================================
+ PERFORMING A VMC CONFIGURATION-GENERATION CALCULATION.
+ ======================================================
+
+
+ BEGIN VMC CALCULATION
+ =====================
+
+ No of up/down spin electrons initially associated with each ion:
+ ----------------------------------------------------------------
+ Ion,    # up-spin, # down-spin
+ 1            2          1
+ 2            1          2
+ 3            3          2
+ 4            2          3
+ [Use edist_by_ion/edist_by_iontype in input to change this]
+
+
+ Running VMC equilibration (1000 moves).
+  Performing timestep optimization.
+  Optimized DTVMC:  3.8486E-01
+ Done. [total CPU time: 0s]
+
+ Kinetic energy check performed.
+  Slater determinants - gradient: optimal, Laplacian: optimal.
+  Jastrow factor - gradient: optimal, Laplacian: optimal.
+ End of report.
+
+ Starting VMC.
+
+ =========================================================================
+ In block : 1
+
+ Acceptance ratio <level 1>        (%)  =  52.6944
+ Acceptance ratio <levels 1-2>     (%)  =  49.5875
+ Diffusion constant           (Bohr^2)  = 4.4787E-01
+ Correlation time              (steps)  = 2.0691E+00 +- 1.4921E-01
+ Efficiency               (au^-2 s^-1)  = 3.4055E+01
+ Number of VMC steps                    = 5000
+
+  Block average energies (au per simulation cell)
+
+  Total energy                       (au) =         -23.517715902102
+  Standard error                        +/-           0.020746994685
+
+  Kinetic energy KEI (used in Total) (au) =          19.021170559388
+  Standard error                        +/-           0.096300704435
+
+  Kinetic energy TI                  (au) =          18.621016312010
+  Standard error                        +/-           0.209973168969
+
+  Kinetic energy FISQ                (au) =          18.220862064633
+  Standard error                        +/-           0.399143775757
+
+  Potential energy                   (au) =         -21.185651327552
+  Standard error                        +/-           0.094849606626
+
+  Ewald e-e interaction              (au) =          -0.591982324290
+  Standard error                        +/-           0.036959146618
+
+  Ewald e-i interaction (local)      (au) =         -21.232189772992
+  Standard error                        +/-           0.106782569579
+
+  Ewald e-i interaction (non-local)  (au) =           0.638520769730
+  Standard error                        +/-           0.052750812353
+
+  Constant energy contributions      (au) =         -21.353235133938
+
+  Var. of local energy per sim. cell (au) =           2.152188942393
+  Standard error                        +/-           0.091656181525
+
+
+ Time taken in block    : : :       32.9700
+
+ =========================================================================
+ FINAL RESULT:
+
+  VMC energy (au)    Standard error      Correction for serial correlation
+
+ -23.517715902102 +/- 0.020746994685      No correction
+ -23.517715902102 +/- 0.029843490298      Correlation time method
+ -23.517715902102 +/- 0.031228087171      On-the-fly reblocking method
+
+  Sample variance of E_L (au^2/sim.cell) : 2.152188942393
+
+ =========================================================================
+
+
+ *     *     *     *     *     *     *     *     *     *     *     *
+
+ ===========================================
+ PERFORMING A DMC EQUILIBRATION CALCULATION.
+ ===========================================
+
+
+ BEGIN DMC CALCULATION
+ =====================
+
+ EBEST = -23.568944290270334 (au/prim cell inc. N-N)
+ EREF  = -23.568944290270334
+
+ =========================================================================
+ In block : 1
+
+ Number of moves in block                : 100
+ Acceptance ratio (%)                    : 99.582
+ New best estimate of DMC energy (au)    : -23.72484933
+ Max no of attempts before accept move   : 4
+
+ Time taken in block    : : :      338.7300
+
+
+ *     *     *     *     *     *     *     *     *     *     *     *
+
+ =====================================================
+ PERFORMING A DMC STATISTICS-ACCUMULATION CALCULATION.
+ =====================================================
+
+
+ BEGIN DMC CALCULATION
+ =====================
+
+ EBEST = -23.724849328087004 (au/prim cell inc. N-N)
+ EREF  = -23.751531784978951
+
+ Number of previous DMC stats accumulation moves : 0
+
+ =========================================================================
+ In block : 1
+
+ Number of moves in block                : 500
+ Acceptance ratio (%)                    : 99.590
+ New best estimate of DMC energy (au)    : -23.73648092
+ Max no of attempts before accept move   : 4
+ New best estimate of effective timestep : 0.00993278
+
+ Time taken in block    : : :     1655.5400
+
+
+ Mixed estimators of the energies at the end of the run
+ ------------------------------------------------------
+ [All energies given in au per primitive cell]
+ Bad reblock convergence for ETOT. Too few data points? Standard error in
+ standard error larger than 10%.
+
+ Total energy                 =      -23.736480924321 +/-        0.005375498952
+ Kinetic energy (TI)          =       18.688388383315 +/-        0.088467999912
+ Kinetic energy (KEI)         =       18.498316105920 +/-        0.049429546476
+ Kinetic energy (FISQ)        =       18.878460660711 +/-        0.179065243421
+ e-e interac. (Ewald/Coulomb) =       -1.078671917547 +/-        0.004552175352
+ e-i interaction (local)      =      -20.291938230153 +/-        0.015040624463
+ e-i interaction (nonlocal)   =        0.489048251398 +/-        0.027976892531
+ Constant energy contribs.    =      -21.353235133938
+
+ Dump of raw reblock data
+ ------------------------
+ Number of data points collected = 500
+ Dumping reblock data for energy:
+      mean:    -23.736480924321 +/-       0.005375498952
+    stderr:      0.005375498952 +/-       0.000993930108
+    errfac:      1.893357877424 +/-       0.350081995377
+    N_corr:      3.584804052003 +/-       1.325661007383
+   ------------------------------------------------------
+    Block len      Std error   Err in error
+            1   2.839135E-03   8.987125E-05
+            2   3.339423E-03   1.496431E-04
+            4   3.642852E-03   2.313213E-04
+            8   4.356530E-03   3.928150E-04
+           16   5.037519E-03   6.476480E-04
+           32   5.375499E-03   9.939301E-04  *** BEST ***
+           64   4.737996E-03   1.283590E-03
+          128   3.376569E-03   1.400536E-03
+   ------------------------------------------------------
+
+ =========================================================================
+
+ Total CASINO CPU time  : : :     2028.4000
+ Total CASINO real time : : :     2049.0862
+
+
+ Subroutine timers deactivated (use TIMING_INFO input keyword)
+
+ =========================================================================
+ Ends 2015/01/21 11:57:26.171

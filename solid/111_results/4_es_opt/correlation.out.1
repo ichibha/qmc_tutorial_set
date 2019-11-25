@@ -1,0 +1,224 @@
+ START HEADER
+ GaN/ES/111
+ END HEADER
+
+ START VERSION
+   1
+ END VERSION
+
+ START JASTROW
+ Title
+ GaN/ES/111
+ Truncation order C
+   3
+ START U TERM
+ Number of sets
+   1
+ START SET 1
+ Spherical harmonic l,m
+   0 0
+ Expansion order N_u
+   6
+ Spin dep (0->uu=dd=ud; 1->uu=dd/=ud; 2->uu/=dd/=ud)
+   1
+ Cutoff (a.u.)     ;  Optimizable (0=NO; 1=YES)
+   2.9817970181999995                1
+ Parameter values  ;  Optimizable (0=NO; 1=YES)
+   1.1152369268174729E-002           1       ! alpha_0,1
+   3.3742888262818988E-003           1       ! alpha_2,1
+  -2.6240316839837453E-003           1       ! alpha_3,1
+   3.7104724032958184E-003           1       ! alpha_4,1
+  -2.2082031970252509E-003           1       ! alpha_5,1
+   5.0862617248575840E-004           1       ! alpha_6,1
+   1.8619029638069724E-002           1       ! alpha_0,2
+   2.6555288558277870E-003           1       ! alpha_2,2
+   3.7840140548431756E-004           1       ! alpha_3,2
+   3.5039284608358654E-004           1       ! alpha_4,2
+  -3.9883272582869728E-004           1       ! alpha_5,2
+   1.8663057259585538E-004           1       ! alpha_6,2
+ END SET 1
+ END U TERM
+ START CHI TERM
+ Number of sets ; labelling (1->atom in s. cell; 2->atom in p. cell; 3->species)
+   2   1
+ START SET 1
+ Spherical harmonic l,m
+   0 0
+ Number of atoms in set
+   2
+ Labels of the atoms in this set
+    1    2
+ Impose electron-nucleus cusp (0=NO; 1=YES)
+   0
+ Expansion order N_chi
+   6
+ Spin dep (0->u=d; 1->u/=d)
+   1
+ Cutoff (a.u.)     ;  Optimizable (0=NO; 1=YES)
+   2.9817970181999995                1
+ Parameter values  ;  Optimizable (0=NO; 1=YES)
+   1.4127223118643951E-003           1       ! beta_0,1,1
+   3.4830219161221337E-002           1       ! beta_2,1,1
+  -7.8680541051336123E-002           1       ! beta_3,1,1
+   7.0399342011651433E-002           1       ! beta_4,1,1
+  -2.7120021680217727E-002           1       ! beta_5,1,1
+   3.7592083468811709E-003           1       ! beta_6,1,1
+   1.1376760216371738E-003           1       ! beta_0,2,1
+   3.5128208200780109E-002           1       ! beta_2,2,1
+  -8.4064577850283914E-002           1       ! beta_3,2,1
+   8.0659048907566255E-002           1       ! beta_4,2,1
+  -3.2496647008001797E-002           1       ! beta_5,2,1
+   4.6962902606658358E-003           1       ! beta_6,2,1
+ END SET 1
+ START SET 2
+ Spherical harmonic l,m
+   0 0
+ Number of atoms in set
+   2
+ Labels of the atoms in this set
+    3    4
+ Impose electron-nucleus cusp (0=NO; 1=YES)
+   0
+ Expansion order N_chi
+   6
+ Spin dep (0->u=d; 1->u/=d)
+   1
+ Cutoff (a.u.)     ;  Optimizable (0=NO; 1=YES)
+   2.9817970181999995                1
+ Parameter values  ;  Optimizable (0=NO; 1=YES)
+  -2.1937123912658542E-002           1       ! beta_0,1,2
+   8.0599250958097533E-003           1       ! beta_2,1,2
+  -3.8725024296266466E-002           1       ! beta_3,1,2
+   3.7458469617521445E-002           1       ! beta_4,1,2
+  -1.6362374207082222E-002           1       ! beta_5,1,2
+   2.5447571568543905E-003           1       ! beta_6,1,2
+  -2.4355731478576396E-002           1       ! beta_0,2,2
+   2.4014554864626926E-002           1       ! beta_2,2,2
+  -7.1961994956881645E-002           1       ! beta_3,2,2
+   6.4633908808952006E-002           1       ! beta_4,2,2
+  -2.6029414532853637E-002           1       ! beta_5,2,2
+   3.5061229326644500E-003           1       ! beta_6,2,2
+ END SET 2
+ END CHI TERM
+ START F TERM
+ Number of sets ; labelling (1->atom in s. cell; 2->atom in p. cell; 3->species)
+   2   1
+ START SET 1
+ Number of atoms in set
+   2
+ Labels of the atoms in this set
+    1    2
+ Prevent duplication of u term (0=NO; 1=YES)
+   1
+ Prevent duplication of chi term (0=NO; 1=YES)
+   1
+ Electron-nucleus expansion order N_f_eN
+   2
+ Electron-electron expansion order N_f_ee
+   2
+ Spin dep (0->uu=dd=ud; 1->uu=dd/=ud; 2->uu/=dd/=ud)
+   1
+ Cutoff (a.u.)     ;  Optimizable (0=NO; 1=YES)
+   1.4908985090999998                1
+ Parameter values  ;  Optimizable (0=NO; 1=YES)
+   2.5148663247720293                1       ! gamma_2,2,0,1,1
+  -2.5804561896425559E-002           1       ! gamma_1,0,2,1,1
+  -1.0160211584090639                1       ! gamma_1,1,2,1,1
+  0.13339805661874485                1       ! gamma_2,1,2,1,1
+  0.94476680308659577                1       ! gamma_2,2,2,1,1
+  -9.9555257485387649                1       ! gamma_2,2,0,2,1
+  -1.0583197583412027                1       ! gamma_1,0,2,2,1
+  0.26579665981196438                1       ! gamma_1,1,2,2,1
+  0.67989298876100024                1       ! gamma_2,1,2,2,1
+  0.72975105273460250                1       ! gamma_2,2,2,2,1
+ END SET 1
+ START SET 2
+ Number of atoms in set
+   2
+ Labels of the atoms in this set
+    3    4
+ Prevent duplication of u term (0=NO; 1=YES)
+   1
+ Prevent duplication of chi term (0=NO; 1=YES)
+   1
+ Electron-nucleus expansion order N_f_eN
+   2
+ Electron-electron expansion order N_f_ee
+   2
+ Spin dep (0->uu=dd=ud; 1->uu=dd/=ud; 2->uu/=dd/=ud)
+   1
+ Cutoff (a.u.)     ;  Optimizable (0=NO; 1=YES)
+   1.4908985090999998                1
+ Parameter values  ;  Optimizable (0=NO; 1=YES)
+   9.5224559704441061E-002           1       ! gamma_2,2,0,1,2
+  -2.8830993051191866E-005           1       ! gamma_1,0,2,1,2
+  -2.6409152794324861E-002           1       ! gamma_1,1,2,1,2
+  -1.8277536230208669E-002           1       ! gamma_2,1,2,1,2
+   4.1171279041383992E-002           1       ! gamma_2,2,2,1,2
+ -0.20104150446300006                1       ! gamma_2,2,0,2,2
+  -3.5457907101626375E-003           1       ! gamma_1,0,2,2,2
+   6.6679771098122495E-002           1       ! gamma_1,1,2,2,2
+  -8.1397848812108667E-002           1       ! gamma_2,1,2,2,2
+  0.17044026770034187                1       ! gamma_2,2,2,2,2
+ END SET 2
+ END F TERM
+ END JASTROW
+
+ START BACKFLOW
+ Title
+ GaN/ES/111
+ Truncation order
+   3
+ START ETA TERM
+ Expansion order
+   6
+ Spin dep (0->uu=dd=ud; 1->uu=dd/=ud; 2->uu/=dd/=ud)
+   1
+ Cut-off radii ;      Optimizable (0=NO; 1=YES; 2=YES BUT NO SPIN-DEP)
+   0.0000000000000000              1
+ Parameter ;          Optimizable (0=NO; 1=YES)
+ END ETA TERM
+ START MU TERM
+ Number of sets
+   2
+ START SET 1
+ Number of atoms in set
+   2
+ Labels of the atoms in this set
+   1 2
+ Type of e-N cusp conditions (0->PP/cuspless AE; 1->AE with cusp)
+   0
+ Expansion order
+   6
+ Spin dep (0->u=d; 1->u/=d)
+   1
+ Cutoff (a.u.)     ;  Optimizable (0=NO; 1=YES)
+   0.0000000000000000              1
+ Parameter values  ;  Optimizable (0=NO; 1=YES)
+ END SET 1
+ START SET 2
+ Number of atoms in set
+   2
+ Labels of the atoms in this set
+   3 4
+ Type of e-N cusp conditions (0->PP/cuspless AE; 1->AE with cusp)
+   0
+ Expansion order
+   2
+ Spin dep (0->uu=dd=ud; 1->uu=dd/=ud; 2->uu/=dd/=ud)
+   1
+ Cutoff (a.u.)     ;  Optimizable (0=NO; 1=YES)
+   0.0000000000000000              1
+ Parameter values  ;  Optimizable (0=NO; 1=YES)
+ END SET 2
+ END MU TERM
+ END BACKFLOW
+
+ START MDET
+ Title
+ GaN/ES/111
+ Multideterminant/excitation specification (see manual)
+ SD
+  DET 1 1 PR 8 1 9 1
+ END MDET
+

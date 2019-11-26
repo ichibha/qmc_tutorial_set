@@ -1,0 +1,37 @@
+ Mixed estimators of the energies (current best estimate)
+ --------------------------------------------------------
+ [All energies given in au per primitive cell]
+ Bad reblock convergence for ETOT. Too few data points? Standard error in
+ standard error larger than 10%.
+
+ Total energy                 =       -7.799761339660 +/-        0.002145800262
+ Kinetic energy (TI)          =        3.486646518456 +/-        0.011493452985
+ Kinetic energy (KEI)         =        3.489154097537 +/-        0.001185098113
+ Kinetic energy (FISQ)        =        3.484138939375 +/-        0.022207384780
+ e-e interac. (Ewald/Coulomb) =       -2.040033757082 +/-        0.002677083503
+ e-i interaction (local)      =       -2.458657262799 +/-        0.002635354017
+ e-i interaction (nonlocal)   =        1.659654868869 +/-        0.020381901827
+ Constant energy contribs.    =       -8.449879286185
+
+ Dump of raw reblock data
+ ------------------------
+ Number of data points collected = 600
+ Reblock data for energy:
+      mean:     -7.799761339660 +/-       0.002145800262
+    stderr:      0.002145800262 +/-       0.000765878320
+    errfac:      6.070863180024 +/-       2.166810477914
+    N_corr:     36.855379750565 +/-      26.308819896916
+   ------------------------------------------------------
+    Block len      Std error   Err in error
+            1   3.534588E-04   1.021467E-05
+            2   4.651969E-04   1.902827E-05
+            4   5.985274E-04   3.468068E-05
+            8   7.509023E-04   6.173948E-05
+           16   9.020492E-04   1.052002E-04
+           32   1.183584E-03   1.975296E-04
+           64   1.600609E-03   3.850914E-04
+          128   2.145800E-03   7.658783E-04  *** BEST ***
+          256   2.888180E-03   1.610056E-03
+   ------------------------------------------------------
+
+ =========================================================================

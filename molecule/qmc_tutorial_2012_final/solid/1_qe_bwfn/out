@@ -1,0 +1,422 @@
+
+     Program PWSCF v.4.3.2      starts on  4Mar2012 at 15:55:51 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/wiki/index.php/Citing_Quantum-ESPRESSO
+
+     Parallel version (MPI), running on     1 processors
+
+     Current dimensions of program PWSCF are:
+     Max number of different atomic species (ntypx) = 10
+     Max number of k-points (npk) =  40000
+     Max angular momentum in pseudopotentials (lmaxx) =  3
+     Waiting for input...
+     Reading input from stdin
+Warning: card   &IONS ignored
+Warning: card   / ignored
+
+     IMPORTANT: XC functional enforced from input :
+     Exchange-correlation      = PBE ( 1 4 3 4 0)
+     EXX-fraction              =        0.00
+     Any further DFT definition will be discarded
+     Please, verify this is what you really want
+
+
+     Subspace diagonalization in iterative solution of the eigenvalue problem:
+     a serial algorithm will be used
+
+ 
+     G-vector sticks info
+     --------------------
+     sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+     Sum         433     433    127                 5961     5961     965
+ 
+
+
+     bravais-lattice index     =            2
+     lattice parameter (alat)  =      10.2000  a.u.
+     unit-cell volume          =     265.3020 (a.u.)^3
+     number of atoms/cell      =            2
+     number of atomic types    =            1
+     number of electrons       =         8.00
+     number of Kohn-Sham states=            8
+     kinetic-energy cutoff     =      30.0000  Ry
+     charge density cutoff     =     120.0000  Ry
+     convergence threshold     =      1.0E-08
+     mixing beta               =       0.7000
+     number of iterations used =            8  plain     mixing
+     Exchange-correlation      = PBE ( 1 4 3 4 0)
+     EXX-fraction              =        0.00
+
+     celldm(1)=  10.200000  celldm(2)=   0.000000  celldm(3)=   0.000000
+     celldm(4)=   0.000000  celldm(5)=   0.000000  celldm(6)=   0.000000
+
+     crystal axes: (cart. coord. in units of alat)
+               a(1) = (  -0.500000   0.000000   0.500000 )  
+               a(2) = (   0.000000   0.500000   0.500000 )  
+               a(3) = (  -0.500000   0.500000   0.000000 )  
+
+     reciprocal axes: (cart. coord. in units 2 pi/alat)
+               b(1) = ( -1.000000 -1.000000  1.000000 )  
+               b(2) = (  1.000000  1.000000  1.000000 )  
+               b(3) = ( -1.000000  1.000000 -1.000000 )  
+
+
+     PseudoPot. # 1 for Si read from file:
+     ./si.UPF
+     MD5 check sum: 761e7dc986b806604b7d20a358b3e1d9
+     Pseudo is Norm-conserving, Zval =  4.0
+     From a Trail & Needs tabulated PP for CASINO
+     Using radial grid of 1603 points,  2 beta functions with: 
+                l(1) =   0
+                l(2) =   1
+
+     atomic species   valence    mass     pseudopotential
+        Si             4.00    28.08600     Si( 1.00)
+
+     No symmetry found
+                                    s                        frac. trans.
+
+      isym =  1     identity                                     
+
+ cryst.   s( 1) = (     1          0          0      )    f =(  0.0000000 )
+                  (     0          1          0      )       (  0.0000000 )
+                  (     0          0          1      )       (  0.0000000 )
+
+ cart.    s( 1) = (  1.0000000  0.0000000  0.0000000 )    f =(  0.0000000 )
+                  (  0.0000000  1.0000000  0.0000000 )       (  0.0000000 )
+                  (  0.0000000  0.0000000  1.0000000 )       (  0.0000000 )
+
+
+     point group C_1 (1)    
+     there are  1 classes
+     the character table:
+
+       E    
+A      1.00
+
+     the symmetry operations in each class:
+     E        1
+
+   Cartesian axes
+
+     site n.     atom                  positions (alat units)
+         1           Si  tau(   1) = (   0.0000000   0.0000000   0.0000000  )
+         2           Si  tau(   2) = (  -0.2500000   0.2500000   0.2500000  )
+
+   Crystallographic axes
+
+     site n.     atom                  positions (cryst. coord.)
+         1           Si  tau(   1) = (  0.0000000  0.0000000  0.0000000  )
+         2           Si  tau(   2) = (  0.2500000  0.2500000  0.2500000  )
+
+     number of k points=     8  gaussian smearing, width (Ry)=  0.0020
+                       cart. coord. in units 2pi/alat
+        k(    1) = (   0.0000000   0.0000000   0.0000000), wk =   0.2500000
+        k(    2) = (   0.5000000  -0.5000000   0.5000000), wk =   0.2500000
+        k(    3) = (  -0.5000000  -0.5000000  -0.5000000), wk =   0.2500000
+        k(    4) = (   0.0000000  -1.0000000   0.0000000), wk =   0.2500000
+        k(    5) = (   0.5000000   0.5000000  -0.5000000), wk =   0.2500000
+        k(    6) = (   1.0000000   0.0000000   0.0000000), wk =   0.2500000
+        k(    7) = (   0.0000000   0.0000000  -1.0000000), wk =   0.2500000
+        k(    8) = (   0.5000000  -0.5000000  -0.5000000), wk =   0.2500000
+
+                       cryst. coord.
+        k(    1) = (   0.0000000   0.0000000   0.0000000), wk =   0.2500000
+        k(    2) = (   0.0000000   0.0000000  -0.5000000), wk =   0.2500000
+        k(    3) = (   0.0000000  -0.5000000   0.0000000), wk =   0.2500000
+        k(    4) = (   0.0000000  -0.5000000  -0.5000000), wk =   0.2500000
+        k(    5) = (  -0.5000000   0.0000000   0.0000000), wk =   0.2500000
+        k(    6) = (  -0.5000000   0.0000000  -0.5000000), wk =   0.2500000
+        k(    7) = (  -0.5000000  -0.5000000   0.0000000), wk =   0.2500000
+        k(    8) = (  -0.5000000  -0.5000000  -0.5000000), wk =   0.2500000
+
+     Dense  grid:     5961 G-vectors     FFT dimensions: (  25,  25,  25)
+
+     Largest allocated arrays     est. size (Mb)     dimensions
+        Kohn-Sham Wavefunctions         0.09 Mb     (    754,    8)
+        NL pseudopotentials             0.09 Mb     (    754,    8)
+        Each V/rho on FFT grid          0.24 Mb     (  15625)
+        Each G-vector array             0.05 Mb     (   5961)
+        G-vector shells                 0.00 Mb     (    108)
+     Largest temporary arrays     est. size (Mb)     dimensions
+        Auxiliary wavefunctions         0.37 Mb     (    754,   32)
+        Each subspace H/S matrix        0.02 Mb     (  32,  32)
+        Each <psi_i|beta_j> matrix      0.00 Mb     (      8,    8)
+        Arrays for rho mixing           1.91 Mb     (  15625,   8)
+
+     Initial potential from superposition of free atoms
+
+     starting charge    7.99957, renormalised to    8.00000
+     Starting wfc are    8 atomic wfcs
+
+     total cpu time spent up to now is        0.8 secs
+
+     Self-consistent Calculation
+
+     iteration #  1     ecut=    30.00 Ry     beta=0.70
+     Davidson diagonalization with overlap
+     ethr =  1.00E-02,  avg # of iterations =  3.4
+
+     total cpu time spent up to now is        1.1 secs
+
+     total energy              =     -15.49990963 Ry
+     Harris-Foulkes estimate   =     -15.53180024 Ry
+     estimated scf accuracy    <       0.11970053 Ry
+
+     iteration #  2     ecut=    30.00 Ry     beta=0.70
+     Davidson diagonalization with overlap
+     ethr =  1.50E-03,  avg # of iterations =  1.0
+
+     total cpu time spent up to now is        1.3 secs
+
+     total energy              =     -15.50654828 Ry
+     Harris-Foulkes estimate   =     -15.50624470 Ry
+     estimated scf accuracy    <       0.00458109 Ry
+
+     iteration #  3     ecut=    30.00 Ry     beta=0.70
+     Davidson diagonalization with overlap
+     ethr =  5.73E-05,  avg # of iterations =  1.0
+
+     total cpu time spent up to now is        1.5 secs
+
+     total energy              =     -15.50683769 Ry
+     Harris-Foulkes estimate   =     -15.50679422 Ry
+     estimated scf accuracy    <       0.00008465 Ry
+
+     iteration #  4     ecut=    30.00 Ry     beta=0.70
+     Davidson diagonalization with overlap
+     ethr =  1.06E-06,  avg # of iterations =  2.5
+
+     total cpu time spent up to now is        1.8 secs
+
+     total energy              =     -15.50685865 Ry
+     Harris-Foulkes estimate   =     -15.50685779 Ry
+     estimated scf accuracy    <       0.00000115 Ry
+
+     iteration #  5     ecut=    30.00 Ry     beta=0.70
+     Davidson diagonalization with overlap
+     ethr =  1.44E-08,  avg # of iterations =  2.0
+
+     total cpu time spent up to now is        2.1 secs
+
+     total energy              =     -15.50685902 Ry
+     Harris-Foulkes estimate   =     -15.50685902 Ry
+     estimated scf accuracy    <       0.00000005 Ry
+
+     iteration #  6     ecut=    30.00 Ry     beta=0.70
+     Davidson diagonalization with overlap
+     ethr =  6.75E-10,  avg # of iterations =  2.0
+
+     total cpu time spent up to now is        2.3 secs
+
+     End of self-consistent calculation
+
+          k = 0.0000 0.0000 0.0000 (   725 PWs)   bands (ev):
+
+    -5.4609   6.8441   6.8441   6.8441   9.2914   9.2914   9.2914  10.4962
+
+     occupation numbers 
+     0.2500   0.2500   0.2500   0.2500   0.0000   0.0000   0.0000   0.0000
+
+          k = 0.5000-0.5000 0.5000 (   754 PWs)   bands (ev):
+
+    -3.0430  -0.3619   5.6015   5.6015   8.3710   9.9908   9.9908  14.4677
+
+     occupation numbers 
+     0.2500   0.2500   0.2500   0.2500   0.0000   0.0000   0.0000   0.0000
+
+          k =-0.5000-0.5000-0.5000 (   754 PWs)   bands (ev):
+
+    -3.0430  -0.3619   5.6015   5.6015   8.3710   9.9908   9.9908  14.4677
+
+     occupation numbers 
+     0.2500   0.2500   0.2500   0.2500   0.0000   0.0000   0.0000   0.0000
+
+          k = 0.0000-1.0000 0.0000 (   740 PWs)   bands (ev):
+
+    -1.1779  -1.1779   3.8626   3.8626   7.3374   7.3374  17.1760  17.1760
+
+     occupation numbers 
+     0.2500   0.2500   0.2500   0.2500   0.0000   0.0000   0.0000   0.0000
+
+          k = 0.5000 0.5000-0.5000 (   754 PWs)   bands (ev):
+
+    -3.0430  -0.3619   5.6015   5.6015   8.3710   9.9908   9.9908  14.4677
+
+     occupation numbers 
+     0.2500   0.2500   0.2500   0.2500   0.0000   0.0000   0.0000   0.0000
+
+          k = 1.0000 0.0000 0.0000 (   740 PWs)   bands (ev):
+
+    -1.1779  -1.1779   3.8626   3.8626   7.3374   7.3374  17.1760  17.1760
+
+     occupation numbers 
+     0.2500   0.2500   0.2500   0.2500   0.0000   0.0000   0.0000   0.0000
+
+          k = 0.0000 0.0000-1.0000 (   740 PWs)   bands (ev):
+
+    -1.1779  -1.1779   3.8626   3.8626   7.3374   7.3374  17.1760  17.1760
+
+     occupation numbers 
+     0.2500   0.2500   0.2500   0.2500   0.0000   0.0000   0.0000   0.0000
+
+          k = 0.5000-0.5000-0.5000 (   754 PWs)   bands (ev):
+
+    -3.0430  -0.3619   5.6015   5.6015   8.3710   9.9908   9.9908  14.4677
+
+     occupation numbers 
+     0.2500   0.2500   0.2500   0.2500   0.0000   0.0000   0.0000   0.0000
+
+     the Fermi energy is     7.1015 ev
+
+!    total energy              =     -15.50685903 Ry
+     Harris-Foulkes estimate   =     -15.50685903 Ry
+     estimated scf accuracy    <          2.4E-10 Ry
+
+     The total energy is the sum of the following terms:
+
+     one-electron contribution =       5.08494984 Ry
+     hartree contribution      =       1.22770165 Ry
+     xc contribution           =      -4.91975192 Ry
+     ewald contribution        =     -16.89975860 Ry
+     smearing contrib. (-TS)   =       0.00000000 Ry
+
+     convergence has been achieved in   6 iterations
+ 
+ Energies determined by pw2casino tool
+ -------------------------------------
+ Kinetic energy      3.30702184552656       au  =     6.61404369105312       Ry
+ Local energy       -2.35112465083079       au  =    -4.70224930166157       Ry
+ Non-Local energy    1.58657772581406       au  =     3.17315545162812       Ry
+ Ewald energy       -8.44987930104274       au  =    -16.8997586020855       Ry
+ xc contribution    -2.45987596070046       au  =    -4.91975192140092       Ry
+ hartree energy     0.613850826906718       au  =     1.22770165381344       Ry
+ Smearing (-TS)    -9.690701368940586E-037  au  =   -1.938140273788117E-036  Ry
+ Total energy       -7.75342951432665       au  =    -15.5068590286533       Ry
+ 
+Writing file si.bwfn.data.b1 for program CASINO.
+
+Blip grid: 15x15x15
+
+ Transformed complex orbital k=1, spin=1, band=1 on node 0
+ Transformed complex orbital k=1, spin=1, band=2 on node 0
+ Transformed complex orbital k=1, spin=1, band=3 on node 0
+ Transformed complex orbital k=1, spin=1, band=4 on node 0
+ Transformed complex orbital k=1, spin=1, band=5 on node 0
+ Transformed complex orbital k=1, spin=1, band=6 on node 0
+ Transformed complex orbital k=1, spin=1, band=7 on node 0
+ Transformed complex orbital k=1, spin=1, band=8 on node 0
+ Transformed complex orbital k=2, spin=1, band=1 on node 0
+ Transformed complex orbital k=2, spin=1, band=2 on node 0
+ Transformed complex orbital k=2, spin=1, band=3 on node 0
+ Transformed complex orbital k=2, spin=1, band=4 on node 0
+ Transformed complex orbital k=2, spin=1, band=5 on node 0
+ Transformed complex orbital k=2, spin=1, band=6 on node 0
+ Transformed complex orbital k=2, spin=1, band=7 on node 0
+ Transformed complex orbital k=2, spin=1, band=8 on node 0
+ Transformed complex orbital k=3, spin=1, band=1 on node 0
+ Transformed complex orbital k=3, spin=1, band=2 on node 0
+ Transformed complex orbital k=3, spin=1, band=3 on node 0
+ Transformed complex orbital k=3, spin=1, band=4 on node 0
+ Transformed complex orbital k=3, spin=1, band=5 on node 0
+ Transformed complex orbital k=3, spin=1, band=6 on node 0
+ Transformed complex orbital k=3, spin=1, band=7 on node 0
+ Transformed complex orbital k=3, spin=1, band=8 on node 0
+ Transformed complex orbital k=4, spin=1, band=1 on node 0
+ Transformed complex orbital k=4, spin=1, band=2 on node 0
+ Transformed complex orbital k=4, spin=1, band=3 on node 0
+ Transformed complex orbital k=4, spin=1, band=4 on node 0
+ Transformed complex orbital k=4, spin=1, band=5 on node 0
+ Transformed complex orbital k=4, spin=1, band=6 on node 0
+ Transformed complex orbital k=4, spin=1, band=7 on node 0
+ Transformed complex orbital k=4, spin=1, band=8 on node 0
+ Transformed complex orbital k=5, spin=1, band=1 on node 0
+ Transformed complex orbital k=5, spin=1, band=2 on node 0
+ Transformed complex orbital k=5, spin=1, band=3 on node 0
+ Transformed complex orbital k=5, spin=1, band=4 on node 0
+ Transformed complex orbital k=5, spin=1, band=5 on node 0
+ Transformed complex orbital k=5, spin=1, band=6 on node 0
+ Transformed complex orbital k=5, spin=1, band=7 on node 0
+ Transformed complex orbital k=5, spin=1, band=8 on node 0
+ Transformed complex orbital k=6, spin=1, band=1 on node 0
+ Transformed complex orbital k=6, spin=1, band=2 on node 0
+ Transformed complex orbital k=6, spin=1, band=3 on node 0
+ Transformed complex orbital k=6, spin=1, band=4 on node 0
+ Transformed complex orbital k=6, spin=1, band=5 on node 0
+ Transformed complex orbital k=6, spin=1, band=6 on node 0
+ Transformed complex orbital k=6, spin=1, band=7 on node 0
+ Transformed complex orbital k=6, spin=1, band=8 on node 0
+ Transformed complex orbital k=7, spin=1, band=1 on node 0
+ Transformed complex orbital k=7, spin=1, band=2 on node 0
+ Transformed complex orbital k=7, spin=1, band=3 on node 0
+ Transformed complex orbital k=7, spin=1, band=4 on node 0
+ Transformed complex orbital k=7, spin=1, band=5 on node 0
+ Transformed complex orbital k=7, spin=1, band=6 on node 0
+ Transformed complex orbital k=7, spin=1, band=7 on node 0
+ Transformed complex orbital k=7, spin=1, band=8 on node 0
+ Transformed complex orbital k=8, spin=1, band=1 on node 0
+ Transformed complex orbital k=8, spin=1, band=2 on node 0
+ Transformed complex orbital k=8, spin=1, band=3 on node 0
+ Transformed complex orbital k=8, spin=1, band=4 on node 0
+ Transformed complex orbital k=8, spin=1, band=5 on node 0
+ Transformed complex orbital k=8, spin=1, band=6 on node 0
+ Transformed complex orbital k=8, spin=1, band=7 on node 0
+ Transformed complex orbital k=8, spin=1, band=8 on node 0
+
+     Writing output data file si.save
+ 
+     init_run     :      0.26s CPU      0.39s WALL (       1 calls)
+     electrons    :      1.32s CPU      1.55s WALL (       1 calls)
+
+     Called by init_run:
+     wfcinit      :      0.06s CPU      0.07s WALL (       1 calls)
+     potinit      :      0.02s CPU      0.04s WALL (       1 calls)
+
+     Called by electrons:
+     c_bands      :      1.01s CPU      1.19s WALL (       6 calls)
+     sum_band     :      0.18s CPU      0.20s WALL (       6 calls)
+     v_of_rho     :      0.14s CPU      0.16s WALL (       8 calls)
+     v_h          :      0.01s CPU      0.01s WALL (       8 calls)
+     v_xc         :      0.13s CPU      0.16s WALL (       8 calls)
+     mix_rho      :      0.01s CPU      0.01s WALL (       6 calls)
+
+     Called by c_bands:
+     init_us_2    :      0.03s CPU      0.04s WALL (     112 calls)
+     cegterg      :      0.99s CPU      1.14s WALL (      48 calls)
+
+     Called by sum_band:
+
+     Called by *egterg:
+     h_psi        :      0.87s CPU      0.95s WALL (     151 calls)
+     g_psi        :      0.01s CPU      0.01s WALL (      95 calls)
+     cdiaghg      :      0.05s CPU      0.07s WALL (     143 calls)
+     cegterg:over :      0.04s CPU      0.07s WALL (      95 calls)
+     cegterg:upda :      0.03s CPU      0.03s WALL (      95 calls)
+     cegterg:last :      0.01s CPU      0.01s WALL (      48 calls)
+
+     Called by h_psi:
+     h_psi:vloc   :      0.83s CPU      0.90s WALL (     151 calls)
+     h_psi:vnl    :      0.03s CPU      0.04s WALL (     151 calls)
+     add_vuspsi   :      0.02s CPU      0.02s WALL (     151 calls)
+
+     General routines
+     calbec       :      0.02s CPU      0.03s WALL (     159 calls)
+     fft          :      0.05s CPU      0.08s WALL (      85 calls)
+     fftw         :      0.91s CPU      0.99s WALL (    2442 calls)
+     davcio       :      0.01s CPU      0.05s WALL (     176 calls)
+ 
+     Parallel routines
+ 
+     PWSCF        :     1.75s CPU         2.55s WALL
+
+ 
+   This run was terminated on:  15:55:54   4Mar2012            
+
+=------------------------------------------------------------------------------=
+   JOB DONE.
+=------------------------------------------------------------------------------=

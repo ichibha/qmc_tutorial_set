@@ -1,0 +1,31 @@
+#
+# For a QMC tutorial use
+#
+# ** Revision **
+# On 29 Feb.12 ; Composed by Kenta Hongo
+
+# First release redundant pathes
+
+set path=`echo $path | /usr/bin/sed -e 's|/Volumes/m09nfshdd03/applications/v300pl251/bin_qmc/utils/linuxpc-ifort-parallel||'`
+set path=`echo $path | /usr/bin/sed -e 's|/Users/maezono/qwalk0.90/src||'`
+set path=`echo $path | /usr/bin/sed -e 's|/Users/maezono/qwalk0.90/utils/converter||'`
+set path=`echo $path | /usr/bin/sed -e 's|/usr/local/cuda/bin||'`
+
+# Gaussian 03 issues
+setenv GAUSS_EXEDIR /Volumes/m09nfshdd03/applications/g03
+set path=($path $GAUSS_EXEDIR)
+
+# Quantum Espresso issues
+setenv QE_HOME /Volumes/m09nfshdd03/applications/espresso-4.3.2
+set path=($path $QE_HOME/bin $QE_HOME/upftools)
+
+# CASINO issues
+set path=($path /Volumes/m09nfshdd03/applications/CASINO/bin_qmc/utils/$QMC_ARCH.$QMC_ID)
+
+# For 4 CPUcore parallel computing
+mpd1
+
+# Added by Maezono for general operations
+
+#alias mpd1   'mpdboot -n 1 -f ~/mpd.hosts'
+alias ccmd4  'mpiexec -np 4  ./casino < /dev/null >& err &'

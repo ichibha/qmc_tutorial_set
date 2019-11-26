@@ -1,0 +1,836 @@
+ ------------------------------------------------------------------------------
+
+                   #####
+                  ##   ##    ##     ####   ##  #   ##   ####
+                  ##        ####   ##      ##  ##  ##  ##  ##
+                  ##       ##  ##   ####   ##  ### ##  ##  ##
+                  ##       ######      ##  ##  ## ###  ##  ##
+                  ##   ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
+                   #####   ##  ##   ####   ##  ##   #   ####
+
+                     The Cambridge Quantum Monte Carlo Code
+                             CASINO version unknown
+
+      Main Authors : R.J.Needs, M.D.Towler, N.D.Drummond and P.Lopez Rios
+
+            Theory of Condensed Matter Group, Cavendish Laboratory,
+                University of Cambridge, Cambridge, CB3 OHE, UK.
+
+           CASINO web page: www.tcm.phy.cam.ac.uk/~mdt26/casino2.html
+
+                      Current contact: mdt26 at cam.ac.uk
+
+         No redistribution or modification without explicit permission.
+
+ ------------------------------------------------------------------------------
+ Started 2012/03/04 15:57:01.569
+
+ Running in parallel on 4 processors.
+
+ General input parameters
+ ========================
+ NEU (num up spin electrons)              :  32
+ NED (num down spin electrons)            :  32
+ RUNTYPE (type of run)                    :  vmc
+ PSI_S  (form for [anti]symmetrizing wfn) :  slater
+ ATOM_BASIS_TYPE (atom-centred orb basis) :  blip
+ INTERACTION (interaction type)           :  ewald
+ TESTRUN (read input data,print and stop) :  F
+ PERIODIC                                 :  T
+ NPCELLS (num primitive cells)            :  8
+ COMPLEX_WF (complex Slater wave fn.)     :  T
+ NEIGHPRINT (neighbour analysis)          :  0
+ USE_JASTROW (use Jastrow factor)         :  F
+ BACKFLOW (use backflow corrections)      :  F
+ DBARRC (DBAR recalculation period)       :  100000
+ NON_LOCAL_GRID (NL integration grid)     :  4
+ E_OFFSET (energy offset)                 :  0.0000
+ SINGLE_PRECISION_BLIPS                   :  F
+ WRITE_BINARY_BLIPS (create bwfn.data.bin):  T
+ CONV_BINARY_BLIPS (blip b1 --> bin)      :  F
+ SPARSE                                   :  F
+ CHECKPOINT (checkpointing level)         :  1
+ CHECKPOINT_NCPU (chkpnt group size)      :  4
+ CON_LOC (Dir to read/write config.*)     :  ./
+ RELATIVISTIC                             :  F
+
+ VMC input parameters
+ ====================
+ NEWRUN (start new run)                   :  T
+ VMC_METHOD (choice of VMC algorithm)     :  1
+ DTVMC (VMC timestep)                     :  1.0000E-01
+ OPT_DTVMC (VMC timestep optimization)    :  1
+ VMC_NSTEP (num VMC steps)                :  18000
+ VMC_NCONFIG_WRITE (num configs to write) :  200
+ VMC_NBLOCK (num VMC blocks)              :  10
+ VMC_EQUIL_NSTEP (num equil steps)        :  1500
+ VMC_DECORR_PERIOD (length of inner loop) :  10
+ VMC_AVE_PERIOD (hist reduction factor)   :  1
+ MAKEMOVIE                                :  F
+ FORCES                                   :  F
+
+ Particles
+ =========
+ Particle name                 Charge        Mass         Spin   Type
+ -------------------------------------------------------------------------
+ 1: Spin-up electron          -1.00000       1.0000000     0.5   Fermion
+ 2: Spin-down electron        -1.00000       1.0000000    -0.5   Fermion
+ -------------------------------------------------------------------------
+
+ Number of diffusion types : 1
+
+ Single-particle groupings
+ -------------------------
+ Spin dep. 0 : (1,2) [F] [E]
+ Spin dep. 1 : (1) (2)
+
+ NB, partitions defining spin-[F]amilies and [E]quivalent particles flagged.
+
+ Particle-pair groupings
+ -----------------------
+ Spin-pair dep. 0 : (1-1,1-2,2-2)
+ Spin-pair dep. 1 : (1-1,2-2) (1-2)
+ Spin-pair dep. 2 : (1-1) (1-2) (2-2)
+
+ Initialize random number generator
+ ==================================
+ Generator                                 :  RANLUX
+ RANLUX luxury level                       :  3
+ p value                                   :  223
+
+ Initialized from default seed on node 0   :  314159265
+
+ Reading correlation.data
+ ========================
+ No correlation.data file is present.
+
+ Reading parameters.casl
+ =======================
+ File parameters.casl not present.
+
+ No multideterminant/excitation data supplied.
+ Using ground state defined in xwfn.data file.
+
+ Reading nonlocalized blip wave function and associated data
+ ===========================================================
+ Reading old-format binary data file bwfn.data.b1.
+
+ Title:
+ Generating code                           : PWSCF
+ Method                                    : DFT
+ DFT functional                            : unknown
+ Pseudopotential type                      : unknown
+ Plane-wave cutoff (au)                    : 15.000
+
+ Number of k points                        : 8
+ Max # bands per k point                   : 8
+ Blip grid                                 : 15 by 15 by 15
+ Non-spin-polarized orbital data.
+
+ DFT energy and components (au per primitive cell):
+ Total energy                              : -7.7534295143
+ Kinetic energy                            : 3.3070218455
+ Local potential energy                    : -2.3511246508
+ Non-local potential energy                : 1.5865777258
+ Electron-electron energy                  : 0.6138508269
+ Ion-ion energy                            : -8.4498793010
+
+ Complex blip coefficients ==> calculation with K-POINTS.
+ Single determinant :
+
+ Det 1 spin 1           : ground state
+ Det 1 spin 2           : ground state
+ Det 1 coefficient      : 1.00000000
+
+ Pseudopotentials
+ ================
+
+ Ion type 1, atomic no 14, file=si_pp.data
+ Title:  DF Pseudopotential in real space for Si
+
+ Number of grid points                   :  1603
+ Pseudo-charge                           :  4.0
+ Local cutoff radius (au)                :  2.520398
+ Non-local cutoff radius (au)            :  2.554228
+ Local potential angular momentum        :  2
+ Deviation from z/r at cutoff radius     :  -.7807360827E-05
+ Non-local potential angular momentum    :  0
+ Deviation from vlocal at cutoff radius  :  0.6783071760E-06
+ Non-local potential angular momentum    :  1
+ Deviation from vlocal at cutoff radius  :  0.2689855890E-05
+
+ Geometry derived from information in bwfn.data
+ ==============================================
+
+ Simulation cell : 3D periodic (supercell geometry)
+ Primitive cells : 2 x 2 x 2 = 8
+
+ Primitive cell lattice vectors (au)
+ ------------------------------------------------------------------
+              -5.100000000000     0.000000000000     5.100000000000
+               0.000000000000     5.100000000000     5.100000000000
+              -5.100000000000     5.100000000000     0.000000000000
+
+ Primitive cell reciprocal lattice vectors (au)
+ ------------------------------------------------------------------
+              -0.615998559527    -0.615998559527     0.615998559527
+               0.615998559527     0.615998559527     0.615998559527
+              -0.615998559527     0.615998559527    -0.615998559527
+
+ Primitive cell volume                           0.265302000000E+03
+
+ Simulation cell lattice vectors (au)
+ ------------------------------------------------------------------
+             -10.200000000000     0.000000000000    10.200000000000
+               0.000000000000    10.200000000000    10.200000000000
+             -10.200000000000    10.200000000000     0.000000000000
+
+ Simulation cell reciprocal lattice vectors (au)
+ ------------------------------------------------------------------
+              -0.307999279764    -0.307999279764     0.307999279764
+               0.307999279764     0.307999279764     0.307999279764
+              -0.307999279764     0.307999279764    -0.307999279764
+
+ Simulation cell volume                          0.212241600000E+04
+ Radius of sphere inscribed in Wigner-Seitz cell 0.721248916810E+01
+
+
+ Atom Atno  Type  Position (fractional)            Position (Cartesian au)
+ ------------------------------------------------------------------------------
+    1  14   1     0.0000     0.0000     0.0000     0.0000     0.0000     0.0000
+    2  14   1     0.2500     0.7500    -0.2500    -2.5500     2.5500     2.5500
+    3  14   1     1.0000     1.0000     0.0000    -5.1000     5.1000     0.0000
+    4  14   1     1.2500     1.7500    -0.2500    -7.6500     7.6500     2.5500
+    5  14   1     0.0000     1.0000     0.0000     0.0000     5.1000     5.1000
+    6  14   1     0.2500     1.7500    -0.2500    -2.5500     7.6500     7.6500
+    7  14   1     1.0000     2.0000     0.0000    -5.1000    10.2000     5.1000
+    8  14   1     1.2500     2.7500    -0.2500    -7.6500    12.7500     7.6500
+    9  14   1     0.0000     1.0000    -1.0000    -5.1000     0.0000     5.1000
+   10  14   1     0.2500     1.7500    -1.2500    -7.6500     2.5500     7.6500
+   11  14   1     1.0000     2.0000    -1.0000   -10.2000     5.1000     5.1000
+   12  14   1     1.2500     2.7500    -1.2500   -12.7500     7.6500     7.6500
+   13  14   1     0.0000     2.0000    -1.0000    -5.1000     5.1000    10.2000
+   14  14   1     0.2500     2.7500    -1.2500    -7.6500     7.6500    12.7500
+   15  14   1     1.0000     3.0000    -1.0000   -10.2000    10.2000    10.2000
+   16  14   1     1.2500     3.7500    -1.2500   -12.7500    12.7500    12.7500
+
+ Crystal does not appear to have inversion symmetry.
+
+ Neighbour analysis turned off (NEIGHPRINT==0).
+
+
+ Blip setup
+ ==========
+
+ Periodicity : 3
+ Complex blip orbitals will be used.
+
+ INSULATING GROUND STATE DETECTED
+ No. of doubly occupied bands at each k point: 4
+
+ Detailed band-occupancy information
+ -----------------------------------
+ K POINT 1  (  0.000000,  0.000000,  0.000000)
+ Spin 1:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.251514713400820
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.341452181822833
+ Spin 2:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.251514713400820
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.341452181822833
+
+ K POINT 2  (  0.307999, -0.307999,  0.307999)
+ Spin 1:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.205851138864417
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.307627455119527
+ Spin 2:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.205851138864417
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.307627455119527
+
+ K POINT 3  ( -0.307999, -0.307999, -0.307999)
+ Spin 1:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.205851138864417
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.307627455119525
+ Spin 2:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.205851138864417
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.307627455119525
+
+ K POINT 4  (  0.000000, -0.615999,  0.000000)
+ Spin 1:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.141946504164387
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.269642841238122
+ Spin 2:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.141946504164387
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.269642841238122
+
+ K POINT 5  (  0.307999,  0.307999, -0.307999)
+ Spin 1:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.205851138864417
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.307627455119525
+ Spin 2:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.205851138864417
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.307627455119525
+
+ K POINT 6  (  0.615999,  0.000000,  0.000000)
+ Spin 1:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.141946504164386
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.269642841238121
+ Spin 2:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.141946504164386
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.269642841238121
+
+ K POINT 7  (  0.000000,  0.000000, -0.615999)
+ Spin 1:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.141946504164386
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.269642841238121
+ Spin 2:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.141946504164386
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.269642841238121
+
+ K POINT 8  (  0.307999, -0.307999, -0.307999)
+ Spin 1:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.205851138864417
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.307627455119525
+ Spin 2:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.205851138864417
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.307627455119525
+
+ Expectation values
+ ==================
+ None requested.
+
+ Interactions
+ ============
+ Interaction type: Coulomb
+
+ Setup 3D Ewald interaction.
+
+ No. of G in reciprocal space sum   :  90
+ No. of vectors in real space sum   :  19
+ Maximum |G|^2 (au)                 :  0.77503794E-01
+ Gamma^(1/2) = Gaussian half-width  :  0.21787858
+ Electron self-image term (au)      :  -0.224748143978179
+
+ Ionic repulsion energy (au/primitive cell)
+ ==========================================
+ EIONION from file  : -8.449879301043
+ Calculated EIONION : -8.449879286185
+
+ Calculated and input nuclear repulsion energies agree.
+
+ Non-local integration grids
+ ===========================
+ Ion type            :  1
+ Non-local grid no.  :  4
+ Lexact              :  5
+ Number of points    :  12
+
+
+ Setup complete.
+
+ ====================================
+ PERFORMING A SINGLE VMC CALCULATION.
+ ====================================
+
+
+ BEGIN VMC CALCULATION
+ =====================
+
+ No of up/down spin electrons initially associated with each ion:
+ ----------------------------------------------------------------
+ Element, # up-spin, # down-spin
+ Si            2          2
+ [Use edist_by_ion/edist_by_iontype in input to change this]
+
+
+ Running VMC equilibration (1500 moves).
+  Performing timestep optimization.
+  Optimized DTVMC:  9.6219E-01
+ Done. [total CPU time: 2s]
+
+ Kinetic energy check performed.
+  Slater determinants - gradient: optimal, Laplacian: optimal.
+ End of report.
+
+ Starting VMC.
+
+ =========================================================================
+ In block : 1
+
+ Acceptance ratio         (%)  =  50.1776
+ Diffusion constant  (Bohr^2)  = 2.7694E-01
+ Correlation time     (steps)  = 1.0591E+00 +- 9.7650E-02
+ Efficiency      (au^-2 s^-1)  = 1.9884E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.516227604989
+  Standard error                        +/-           0.008106856894
+
+  Kinetic energy KEI (used in Total) (au) =           3.314611040495
+  Standard error                        +/-           0.008836237446
+
+  Kinetic energy TI                  (au) =           3.332687394994
+  Standard error                        +/-           0.073438150081
+
+  Kinetic energy FISQ                (au) =           3.350763749494
+  Standard error                        +/-           0.147627693864
+
+  Potential energy                   (au) =          -2.380959359299
+  Standard error                        +/-           0.011381369417
+
+  Ewald e-e interaction              (au) =          -1.619847198767
+  Standard error                        +/-           0.008153343398
+
+  Ewald e-i interaction (local)      (au) =          -2.330180826467
+  Standard error                        +/-           0.018634591758
+
+  Ewald e-i interaction (non-local)  (au) =           1.569068665934
+  Standard error                        +/-           0.015588241260
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           7.756194080281
+  Standard error                        +/-           0.548416192402
+
+
+ Time taken in block    : : :       11.0200
+
+
+ =========================================================================
+ In block : 2
+
+ Acceptance ratio         (%)  =  50.1596
+ Diffusion constant  (Bohr^2)  = 2.7868E-01
+ Correlation time     (steps)  = 1.0693E+00 +- 9.8293E-02
+ Efficiency      (au^-2 s^-1)  = 1.9365E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.522975622835
+  Standard error                        +/-           0.008202496533
+
+  Kinetic energy KEI (used in Total) (au) =           3.305211808047
+  Standard error                        +/-           0.008540473962
+
+  Kinetic energy TI                  (au) =           3.226929429850
+  Standard error                        +/-           0.020132455632
+
+  Kinetic energy FISQ                (au) =           3.148647051653
+  Standard error                        +/-           0.040000780444
+
+  Potential energy                   (au) =          -2.378308144697
+  Standard error                        +/-           0.011288669270
+
+  Ewald e-e interaction              (au) =          -1.620851236974
+  Standard error                        +/-           0.008234760348
+
+  Ewald e-i interaction (local)      (au) =          -2.320722077274
+  Standard error                        +/-           0.017533508982
+
+  Ewald e-i interaction (non-local)  (au) =           1.563265169552
+  Standard error                        +/-           0.015788721161
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           7.880897840989
+  Standard error                        +/-           0.958988329982
+
+
+ Time taken in block    : : :       11.0300
+
+
+ =========================================================================
+ In block : 3
+
+ Acceptance ratio         (%)  =  50.1474
+ Diffusion constant  (Bohr^2)  = 2.7722E-01
+ Correlation time     (steps)  = 1.0862E+00 +- 1.0053E-01
+ Efficiency      (au^-2 s^-1)  = 1.9780E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.537754041800
+  Standard error                        +/-           0.008055650736
+
+  Kinetic energy KEI (used in Total) (au) =           3.302376950307
+  Standard error                        +/-           0.008783811578
+
+  Kinetic energy TI                  (au) =           3.277895838446
+  Standard error                        +/-           0.039615463070
+
+  Kinetic energy FISQ                (au) =           3.253414726585
+  Standard error                        +/-           0.079631044853
+
+  Potential energy                   (au) =          -2.390251705922
+  Standard error                        +/-           0.011518633463
+
+  Ewald e-e interaction              (au) =          -1.630849544804
+  Standard error                        +/-           0.007916559505
+
+  Ewald e-i interaction (local)      (au) =          -2.363532224418
+  Standard error                        +/-           0.017367676844
+
+  Ewald e-i interaction (non-local)  (au) =           1.604130063300
+  Standard error                        +/-           0.015497715383
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           7.601998864570
+  Standard error                        +/-           0.390199734452
+
+
+ Time taken in block    : : :       11.0200
+
+
+ =========================================================================
+ In block : 4
+
+ Acceptance ratio         (%)  =  50.1852
+ Diffusion constant  (Bohr^2)  = 2.7701E-01
+ Correlation time     (steps)  = 1.0017E+00 +- 8.8578E-02
+ Efficiency      (au^-2 s^-1)  = 2.2258E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.514901758547
+  Standard error                        +/-           0.007910470014
+
+  Kinetic energy KEI (used in Total) (au) =           3.300758929971
+  Standard error                        +/-           0.008204439662
+
+  Kinetic energy TI                  (au) =           3.253037116825
+  Standard error                        +/-           0.023638075819
+
+  Kinetic energy FISQ                (au) =           3.205315303680
+  Standard error                        +/-           0.047113385844
+
+  Potential energy                   (au) =          -2.365781402332
+  Standard error                        +/-           0.010692340785
+
+  Ewald e-e interaction              (au) =          -1.614567464409
+  Standard error                        +/-           0.008135787964
+
+  Ewald e-i interaction (local)      (au) =          -2.357805176593
+  Standard error                        +/-           0.017527724206
+
+  Ewald e-i interaction (non-local)  (au) =           1.606591238670
+  Standard error                        +/-           0.014848572703
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           7.306337107252
+  Standard error                        +/-           0.365401892708
+
+
+ Time taken in block    : : :       11.0500
+
+
+ =========================================================================
+ In block : 5
+
+ Acceptance ratio         (%)  =  50.1606
+ Diffusion constant  (Bohr^2)  = 2.7872E-01
+ Correlation time     (steps)  = 8.8902E-01 +- 7.8695E-02
+ Efficiency      (au^-2 s^-1)  = 2.0512E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.517393333210
+  Standard error                        +/-           0.008324470499
+
+  Kinetic energy KEI (used in Total) (au) =           3.310796075829
+  Standard error                        +/-           0.008973625754
+
+  Kinetic energy TI                  (au) =           3.319131462737
+  Standard error                        +/-           0.037340723399
+
+  Kinetic energy FISQ                (au) =           3.327466849644
+  Standard error                        +/-           0.073831920947
+
+  Potential energy                   (au) =          -2.378310122854
+  Standard error                        +/-           0.011511931297
+
+  Ewald e-e interaction              (au) =          -1.618942475209
+  Standard error                        +/-           0.007942139985
+
+  Ewald e-i interaction (local)      (au) =          -2.338882144168
+  Standard error                        +/-           0.017956499706
+
+  Ewald e-i interaction (non-local)  (au) =           1.579514496523
+  Standard error                        +/-           0.015600712204
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           7.948540668931
+  Standard error                        +/-           0.423779501788
+
+
+ Time taken in block    : : :       11.0400
+
+
+ =========================================================================
+ In block : 6
+
+ Acceptance ratio         (%)  =  50.1842
+ Diffusion constant  (Bohr^2)  = 2.7885E-01
+ Correlation time     (steps)  = 9.3305E-01 +- 8.2935E-02
+ Efficiency      (au^-2 s^-1)  = 2.0996E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.515865435293
+  Standard error                        +/-           0.008678048747
+
+  Kinetic energy KEI (used in Total) (au) =           3.311357722928
+  Standard error                        +/-           0.008874603486
+
+  Kinetic energy TI                  (au) =           3.284519812999
+  Standard error                        +/-           0.033264892979
+
+  Kinetic energy FISQ                (au) =           3.257681903071
+  Standard error                        +/-           0.066090878959
+
+  Potential energy                   (au) =          -2.377343872036
+  Standard error                        +/-           0.011715057247
+
+  Ewald e-e interaction              (au) =          -1.613870042077
+  Standard error                        +/-           0.008225345551
+
+  Ewald e-i interaction (local)      (au) =          -2.358830304941
+  Standard error                        +/-           0.017837561154
+
+  Ewald e-i interaction (non-local)  (au) =           1.595356474982
+  Standard error                        +/-           0.016089991535
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           7.779435667530
+  Standard error                        +/-           0.485783532088
+
+
+ Time taken in block    : : :       11.0200
+
+
+ =========================================================================
+ In block : 7
+
+ Acceptance ratio         (%)  =  50.1498
+ Diffusion constant  (Bohr^2)  = 2.7710E-01
+ Correlation time     (steps)  = 1.0072E+00 +- 9.5913E-02
+ Efficiency      (au^-2 s^-1)  = 2.2272E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.516941481491
+  Standard error                        +/-           0.007895457208
+
+  Kinetic energy KEI (used in Total) (au) =           3.310929387367
+  Standard error                        +/-           0.008104661880
+
+  Kinetic energy TI                  (au) =           3.209550992086
+  Standard error                        +/-           0.017701021539
+
+  Kinetic energy FISQ                (au) =           3.108172596805
+  Standard error                        +/-           0.035267710803
+
+  Potential energy                   (au) =          -2.377991582673
+  Standard error                        +/-           0.010521649097
+
+  Ewald e-e interaction              (au) =          -1.612137505638
+  Standard error                        +/-           0.007936912820
+
+  Ewald e-i interaction (local)      (au) =          -2.320976279129
+  Standard error                        +/-           0.018218174985
+
+  Ewald e-i interaction (non-local)  (au) =           1.555122202094
+  Standard error                        +/-           0.015834197715
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           7.268576837023
+  Standard error                        +/-           0.542368206118
+
+
+ Time taken in block    : : :       11.0400
+
+
+ =========================================================================
+ In block : 8
+
+ Acceptance ratio         (%)  =  50.1571
+ Diffusion constant  (Bohr^2)  = 2.7781E-01
+ Correlation time     (steps)  = 9.8515E-01 +- 9.0670E-02
+ Efficiency      (au^-2 s^-1)  = 2.3445E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.525139946613
+  Standard error                        +/-           0.008059143854
+
+  Kinetic energy KEI (used in Total) (au) =           3.316000694066
+  Standard error                        +/-           0.008420027023
+
+  Kinetic energy TI                  (au) =           3.235630931499
+  Standard error                        +/-           0.017474196117
+
+  Kinetic energy FISQ                (au) =           3.155261168932
+  Standard error                        +/-           0.034941006957
+
+  Potential energy                   (au) =          -2.391261354494
+  Standard error                        +/-           0.011061428294
+
+  Ewald e-e interaction              (au) =          -1.625979882105
+  Standard error                        +/-           0.007778880994
+
+  Ewald e-i interaction (local)      (au) =          -2.358322771159
+  Standard error                        +/-           0.018243402876
+
+  Ewald e-i interaction (non-local)  (au) =           1.593041298770
+  Standard error                        +/-           0.015331549518
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           6.954375172454
+  Standard error                        +/-           0.324306575143
+
+
+ Time taken in block    : : :       11.0400
+
+
+ =========================================================================
+ In block : 9
+
+ Acceptance ratio         (%)  =  50.2061
+ Diffusion constant  (Bohr^2)  = 2.7587E-01
+ Correlation time     (steps)  = 8.1855E-01 +- 7.0721E-02
+ Efficiency      (au^-2 s^-1)  = 2.1706E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.521654673707
+  Standard error                        +/-           0.008082818085
+
+  Kinetic energy KEI (used in Total) (au) =           3.300217800522
+  Standard error                        +/-           0.008589079902
+
+  Kinetic energy TI                  (au) =           3.285621201914
+  Standard error                        +/-           0.035245271386
+
+  Kinetic energy FISQ                (au) =           3.271024603306
+  Standard error                        +/-           0.070871824935
+
+  Potential energy                   (au) =          -2.371993188044
+  Standard error                        +/-           0.011336347319
+
+  Ewald e-e interaction              (au) =          -1.622619035423
+  Standard error                        +/-           0.007929751681
+
+  Ewald e-i interaction (local)      (au) =          -2.321617221779
+  Standard error                        +/-           0.017710925603
+
+  Ewald e-i interaction (non-local)  (au) =           1.572243069159
+  Standard error                        +/-           0.015990547674
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           7.525024723650
+  Standard error                        +/-           0.372544403843
+
+
+ Time taken in block    : : :       11.0200
+
+
+ =========================================================================
+ In block : 10
+
+ Acceptance ratio         (%)  =  50.1812
+ Diffusion constant  (Bohr^2)  = 2.7714E-01
+ Correlation time     (steps)  = 9.6594E-01 +- 8.5585E-02
+ Efficiency      (au^-2 s^-1)  = 2.2749E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.520704343240
+  Standard error                        +/-           0.007677047599
+
+  Kinetic energy KEI (used in Total) (au) =           3.326541037728
+  Standard error                        +/-           0.008489702751
+
+  Kinetic energy TI                  (au) =           3.407182941237
+  Standard error                        +/-           0.059756343385
+
+  Kinetic energy FISQ                (au) =           3.487824844746
+  Standard error                        +/-           0.119633583969
+
+  Potential energy                   (au) =          -2.397366094783
+  Standard error                        +/-           0.010898217724
+
+  Ewald e-e interaction              (au) =          -1.616005961907
+  Standard error                        +/-           0.007799235801
+
+  Ewald e-i interaction (local)      (au) =          -2.363407201428
+  Standard error                        +/-           0.017086460746
+
+  Ewald e-i interaction (non-local)  (au) =           1.582047068552
+  Standard error                        +/-           0.014967877853
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           7.160651709298
+  Standard error                        +/-           0.346923391576
+
+
+ Time taken in block    : : :       11.0500
+
+ =========================================================================
+
+ CALC_VARIANCE output:
+ Variance of local energy (au/sim.cell) : 7.518203267198 +- 0.105495324964
+
+ =========================================================================
+
+ Reblocked VMC energy:       -7.520955824172 +/-        0.002541021251
+
+ =========================================================================
+
+
+ Total CASINO CPU time  : : :      112.1300
+ Total CASINO real time : : :      113.3070
+
+
+ Subroutine timers deactivated (use TIMING_INFO input keyword)
+
+ =========================================================================
+ Ends 2012/03/04 15:58:54.873

@@ -1,0 +1,50 @@
+#-------------------#
+# CASINO input file #
+#-------------------#
+
+# Silicon (blip basis)
+
+# SYSTEM
+neu               : 32             #*! Number of up electrons (Integer)
+ned               : 32             #*! Number of down electrons (Integer)
+periodic          : T              #*! Periodic boundary conditions (Boolean)
+atom_basis_type   : blip           #*! Basis set type (Text)
+complex_wf        : T              #*! Wave function real or complex (Boolean)
+psi_s             : slater         #*! Type of [anti]symmetrizing wfn (Text)
+%block npcell
+2 2 2
+%endblock npcell
+
+# RUN
+runtype           : vmc_opt            #*! Type of calculation (Text)
+newrun            : T              #*! New run or continue old (Boolean)
+testrun           : F              #*! Test run flag (Boolean)
+
+# VMC
+vmc_equil_nstep   : 1000            #*! Number of equilibration steps (Integer)
+vmc_nstep         : 1500            #*! Number of moves (Integer)
+vmc_nblock        : 1              #*! Number of blocks (Integer)
+opt_dtvmc         : 1              #*! Optimize VMC timestep (Integer)
+vmc_nconfig_write : 200           #*! Number of configs to write (Integer)
+writeout_vmc_hist : F              #*! Write vmc.hist (Boolean)
+vmc_decorr_period : 10             #*! Decorrelation loop length (Integer)
+
+# DMC
+dmc_equil_nstep   : 5              #*! Number of steps (Integer)
+dmc_equil_nblock  : 1              #*! Number of checkpoints (Integer)
+dmc_stats_nstep   : 10             #*! Number of steps (Integer)
+dmc_stats_nblock  : 1              #*! Number of checkpoints (Integer)
+dmc_target_weight : 120           #*! Number of configs (DMC) (Integer)
+dtdmc             : 0.005          #*! DMC time step (Double Precision)
+use_tmove         : F              #*! Casula nl pp for DMC (Boolean)
+
+# OPTIMIZATION
+opt_method        : varmin         #*! Opt method (varmin/varmin_linjas/emin)
+opt_cycles        : 3              #*! Number of optimization cycles (Integer)
+opt_jastrow       : T              #*! Optimize Jastrow factor (Boolean)
+opt_backflow      : F              #*! Optimize backflow parameters (Boolean)
+
+# GENERAL PARAMETERS
+use_jastrow       : T              #*! Use a Jastrow function (Boolean)
+backflow          : F              #*! Use backflow corrections (Boolean)
+single_precision_blips : F         #*! Blip orbs single prec coeffs (Integer)

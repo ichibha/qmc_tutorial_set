@@ -1,0 +1,1335 @@
+ ------------------------------------------------------------------------------
+
+                   #####
+                  ##   ##    ##     ####   ##  #   ##   ####
+                  ##        ####   ##      ##  ##  ##  ##  ##
+                  ##       ##  ##   ####   ##  ### ##  ##  ##
+                  ##       ######      ##  ##  ## ###  ##  ##
+                  ##   ##  ##  ##  ##  ##  ##  ##  ##  ##  ##
+                   #####   ##  ##   ####   ##  ##   #   ####
+
+                     The Cambridge Quantum Monte Carlo Code
+                             CASINO version unknown
+
+      Main Authors : R.J.Needs, M.D.Towler, N.D.Drummond and P.Lopez Rios
+
+            Theory of Condensed Matter Group, Cavendish Laboratory,
+                University of Cambridge, Cambridge, CB3 OHE, UK.
+
+           CASINO web page: www.tcm.phy.cam.ac.uk/~mdt26/casino2.html
+
+                      Current contact: mdt26 at cam.ac.uk
+
+         No redistribution or modification without explicit permission.
+
+ ------------------------------------------------------------------------------
+ Started 2012/03/04 16:36:11.941
+
+ Running in parallel on 4 processors.
+
+ General input parameters
+ ========================
+ NEU (num up spin electrons)              :  32
+ NED (num down spin electrons)            :  32
+ RUNTYPE (type of run)                    :  vmc_dmc
+ PSI_S  (form for [anti]symmetrizing wfn) :  slater
+ ATOM_BASIS_TYPE (atom-centred orb basis) :  blip
+ INTERACTION (interaction type)           :  ewald
+ TESTRUN (read input data,print and stop) :  F
+ PERIODIC                                 :  T
+ NPCELLS (num primitive cells)            :  8
+ COMPLEX_WF (complex Slater wave fn.)     :  T
+ NEIGHPRINT (neighbour analysis)          :  0
+ USE_JASTROW (use Jastrow factor)         :  T
+ BACKFLOW (use backflow corrections)      :  F
+ DBARRC (DBAR recalculation period)       :  100000
+ NON_LOCAL_GRID (NL integration grid)     :  4
+ E_OFFSET (energy offset)                 :  0.0000
+ SINGLE_PRECISION_BLIPS                   :  F
+ WRITE_BINARY_BLIPS (create bwfn.data.bin):  T
+ CONV_BINARY_BLIPS (blip b1 --> bin)      :  F
+ SPARSE                                   :  F
+ CHECKPOINT (checkpointing level)         :  1
+ CHECKPOINT_NCPU (chkpnt group size)      :  4
+ CON_LOC (Dir to read/write config.*)     :  ./
+ RELATIVISTIC                             :  F
+
+ VMC/DMC input parameters
+ ========================
+ NEWRUN (start new run)                   :  T
+ VMC_METHOD (choice of VMC algorithm)     :  1
+ DTVMC (VMC timestep)                     :  1.0000E-01
+ OPT_DTVMC (VMC timestep optimization)    :  1
+ VMC_NSTEP (num VMC steps)                :  15000
+ VMC_NCONFIG_WRITE (num configs to write) :  200
+ VMC_NBLOCK (num VMC blocks)              :  10
+ VMC_EQUIL_NSTEP (num equil steps)        :  1000
+ VMC_DECORR_PERIOD (length of inner loop) :  10
+ VMC_AVE_PERIOD (hist reduction factor)   :  1
+ DMC_TARGET_WEIGHT                        :  200.00
+ DMC_MD                                   :  F
+ DMC_EQUIL_NSTEP (num equil steps)        :  100
+ DMC_EQUIL_NBLOCK (num blocks)            :  5
+ DMC_STATS_NSTEP (num stats steps)        :  600
+ DMC_STATS_NBLOCK (num blocks)            :  20
+ DMC_DECORR_PERIOD (length of inner loop) :  1
+ DMC_AVE_PERIOD (hist reduction factor)   :  1
+ DMC_TRIP_WEIGHT (catastrophe thres)      :  0.00
+ EBEST_AV_WINDOW (running av for energy)  :  25
+ DMC_METHOD (choice of DMC algorithm)     :  1
+ DMC_REWEIGHT_CONF (Update weights)       :  F
+ DMC_SPACEWARPING (adjust e to new wfn)   :  F
+ REDIST_GRP_SIZE (size of redist groups)  :  500
+ DTDMC (DMC timesteps)                    :  0.00500
+ TPDMC (DMC T_p parameter)                :  0
+ CEREFDMC (constant for EREF [DMC])       :  1.000
+ LIMDMC (limit type for drift vel/energy) :  2
+ NUCLEUS_GF_MODS (DMC GF mods for nuclei) :  T
+ IACCUM (flag for statistics run [DMC])   :  T
+ IBRAN (flag to enable branching [DMC])   :  T
+ LWDMC (flag for enabling weighted DMC)   :  F
+ LWDMC_FIXPOP (fixed population LWDMC)    :  F
+ DMC_NORM_CONSERVE                        :  F
+ DMC_POPRENORM (renormalize config popn)  :  F
+ GROWTH_ESTIMATOR (calc growth estimator) :  F
+ USE_TMOVE                                :  F
+ FUTURE WALKING                           :  F
+ SMALL_TRANSFER (redist. transf. size)    :  F
+ ORBBUF (orbital buffering)               :  T
+ JASBUF (Jastrow buffering)               :  T
+ MAKEMOVIE                                :  F
+ FORCES                                   :  F
+
+ Particles
+ =========
+ Particle name                 Charge        Mass         Spin   Type
+ -------------------------------------------------------------------------
+ 1: Spin-up electron          -1.00000       1.0000000     0.5   Fermion
+ 2: Spin-down electron        -1.00000       1.0000000    -0.5   Fermion
+ -------------------------------------------------------------------------
+
+ Number of diffusion types : 1
+
+ Single-particle groupings
+ -------------------------
+ Spin dep. 0 : (1,2) [F] [E]
+ Spin dep. 1 : (1) (2)
+
+ NB, partitions defining spin-[F]amilies and [E]quivalent particles flagged.
+
+ Particle-pair groupings
+ -----------------------
+ Spin-pair dep. 0 : (1-1,1-2,2-2)
+ Spin-pair dep. 1 : (1-1,2-2) (1-2)
+ Spin-pair dep. 2 : (1-1) (1-2) (2-2)
+
+ Initialize random number generator
+ ==================================
+ Generator                                 :  RANLUX
+ RANLUX luxury level                       :  3
+ p value                                   :  223
+
+ Initialized from default seed on node 0   :  314159265
+
+ Reading correlation.data
+ ========================
+ Header:
+   No title given.
+ Version of correlation.data : 1
+ A Jastrow factor is present in correlation.data.
+
+ Reading parameters.casl
+ =======================
+ File parameters.casl not present.
+
+ No multideterminant/excitation data supplied.
+ Using ground state defined in xwfn.data file.
+
+ Reading nonlocalized blip wave function and associated data
+ ===========================================================
+ Reading old-format binary data file bwfn.data.b1.
+
+ Title:
+ Generating code                           : PWSCF
+ Method                                    : DFT
+ DFT functional                            : unknown
+ Pseudopotential type                      : unknown
+ Plane-wave cutoff (au)                    : 15.000
+
+ Number of k points                        : 8
+ Max # bands per k point                   : 8
+ Blip grid                                 : 15 by 15 by 15
+ Non-spin-polarized orbital data.
+
+ DFT energy and components (au per primitive cell):
+ Total energy                              : -7.7534295143
+ Kinetic energy                            : 3.3070218455
+ Local potential energy                    : -2.3511246508
+ Non-local potential energy                : 1.5865777258
+ Electron-electron energy                  : 0.6138508269
+ Ion-ion energy                            : -8.4498793010
+
+ Complex blip coefficients ==> calculation with K-POINTS.
+ Single determinant :
+
+ Det 1 spin 1           : ground state
+ Det 1 spin 2           : ground state
+ Det 1 coefficient      : 1.00000000
+
+ Pseudopotentials
+ ================
+
+ Ion type 1, atomic no 14, file=si_pp.data
+ Title:  DF Pseudopotential in real space for Si
+
+ Number of grid points                   :  1603
+ Pseudo-charge                           :  4.0
+ Local cutoff radius (au)                :  2.520398
+ Non-local cutoff radius (au)            :  2.554228
+ Local potential angular momentum        :  2
+ Deviation from z/r at cutoff radius     :  -.7807360827E-05
+ Non-local potential angular momentum    :  0
+ Deviation from vlocal at cutoff radius  :  0.6783071760E-06
+ Non-local potential angular momentum    :  1
+ Deviation from vlocal at cutoff radius  :  0.2689855890E-05
+
+ Geometry derived from information in bwfn.data
+ ==============================================
+
+ Simulation cell : 3D periodic (supercell geometry)
+ Primitive cells : 2 x 2 x 2 = 8
+
+ Primitive cell lattice vectors (au)
+ ------------------------------------------------------------------
+              -5.100000000000     0.000000000000     5.100000000000
+               0.000000000000     5.100000000000     5.100000000000
+              -5.100000000000     5.100000000000     0.000000000000
+
+ Primitive cell reciprocal lattice vectors (au)
+ ------------------------------------------------------------------
+              -0.615998559527    -0.615998559527     0.615998559527
+               0.615998559527     0.615998559527     0.615998559527
+              -0.615998559527     0.615998559527    -0.615998559527
+
+ Primitive cell volume                           0.265302000000E+03
+
+ Simulation cell lattice vectors (au)
+ ------------------------------------------------------------------
+             -10.200000000000     0.000000000000    10.200000000000
+               0.000000000000    10.200000000000    10.200000000000
+             -10.200000000000    10.200000000000     0.000000000000
+
+ Simulation cell reciprocal lattice vectors (au)
+ ------------------------------------------------------------------
+              -0.307999279764    -0.307999279764     0.307999279764
+               0.307999279764     0.307999279764     0.307999279764
+              -0.307999279764     0.307999279764    -0.307999279764
+
+ Simulation cell volume                          0.212241600000E+04
+ Radius of sphere inscribed in Wigner-Seitz cell 0.721248916810E+01
+
+
+ Atom Atno  Type  Position (fractional)            Position (Cartesian au)
+ ------------------------------------------------------------------------------
+    1  14   1     0.0000     0.0000     0.0000     0.0000     0.0000     0.0000
+    2  14   1     0.2500     0.7500    -0.2500    -2.5500     2.5500     2.5500
+    3  14   1     1.0000     1.0000     0.0000    -5.1000     5.1000     0.0000
+    4  14   1     1.2500     1.7500    -0.2500    -7.6500     7.6500     2.5500
+    5  14   1     0.0000     1.0000     0.0000     0.0000     5.1000     5.1000
+    6  14   1     0.2500     1.7500    -0.2500    -2.5500     7.6500     7.6500
+    7  14   1     1.0000     2.0000     0.0000    -5.1000    10.2000     5.1000
+    8  14   1     1.2500     2.7500    -0.2500    -7.6500    12.7500     7.6500
+    9  14   1     0.0000     1.0000    -1.0000    -5.1000     0.0000     5.1000
+   10  14   1     0.2500     1.7500    -1.2500    -7.6500     2.5500     7.6500
+   11  14   1     1.0000     2.0000    -1.0000   -10.2000     5.1000     5.1000
+   12  14   1     1.2500     2.7500    -1.2500   -12.7500     7.6500     7.6500
+   13  14   1     0.0000     2.0000    -1.0000    -5.1000     5.1000    10.2000
+   14  14   1     0.2500     2.7500    -1.2500    -7.6500     7.6500    12.7500
+   15  14   1     1.0000     3.0000    -1.0000   -10.2000    10.2000    10.2000
+   16  14   1     1.2500     3.7500    -1.2500   -12.7500    12.7500    12.7500
+
+ Crystal does not appear to have inversion symmetry.
+
+ Neighbour analysis turned off (NEIGHPRINT==0).
+
+
+ Blip setup
+ ==========
+
+ Periodicity : 3
+ Complex blip orbitals will be used.
+
+ INSULATING GROUND STATE DETECTED
+ No. of doubly occupied bands at each k point: 4
+
+ Detailed band-occupancy information
+ -----------------------------------
+ K POINT 1  (  0.000000,  0.000000,  0.000000)
+ Spin 1:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.251514713400820
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.341452181822833
+ Spin 2:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.251514713400820
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.341452181822833
+
+ K POINT 2  (  0.307999, -0.307999,  0.307999)
+ Spin 1:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.205851138864417
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.307627455119527
+ Spin 2:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.205851138864417
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.307627455119527
+
+ K POINT 3  ( -0.307999, -0.307999, -0.307999)
+ Spin 1:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.205851138864417
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.307627455119525
+ Spin 2:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.205851138864417
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.307627455119525
+
+ K POINT 4  (  0.000000, -0.615999,  0.000000)
+ Spin 1:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.141946504164387
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.269642841238122
+ Spin 2:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.141946504164387
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.269642841238122
+
+ K POINT 5  (  0.307999,  0.307999, -0.307999)
+ Spin 1:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.205851138864417
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.307627455119525
+ Spin 2:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.205851138864417
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.307627455119525
+
+ K POINT 6  (  0.615999,  0.000000,  0.000000)
+ Spin 1:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.141946504164386
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.269642841238121
+ Spin 2:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.141946504164386
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.269642841238121
+
+ K POINT 7  (  0.000000,  0.000000, -0.615999)
+ Spin 1:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.141946504164386
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.269642841238121
+ Spin 2:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.141946504164386
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.269642841238121
+
+ K POINT 8  (  0.307999, -0.307999, -0.307999)
+ Spin 1:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.205851138864417
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.307627455119525
+ Spin 2:
+ Bands occupied at k: 1 2 3 4
+ Highest occupied band energy: 0.205851138864417
+ Bands unoccupied at k: 5 6 7 8
+ Lowest unoccupied band energy: 0.307627455119525
+
+ Expectation values
+ ==================
+ None requested.
+
+ Interactions
+ ============
+ Interaction type: Coulomb
+
+ Setup 3D Ewald interaction.
+
+ No. of G in reciprocal space sum   :  90
+ No. of vectors in real space sum   :  19
+ Maximum |G|^2 (au)                 :  0.77503794E-01
+ Gamma^(1/2) = Gaussian half-width  :  0.21787858
+ Electron self-image term (au)      :  -0.224748143978179
+
+ Ionic repulsion energy (au/primitive cell)
+ ==========================================
+ EIONION from file  : -8.449879301043
+ Calculated EIONION : -8.449879286185
+
+ Calculated and input nuclear repulsion energies agree.
+
+ Jastrow factor
+ ==============
+ Reading Jastrow factor from correlation.data file.
+
+ Title: Silicon 2x2x2 (PW basis)
+
+ Truncation order                   :  3
+
+ U term:
+  SET 1
+   Spherical harmonic l             :  0
+   Spherical harmonic m             :  0
+   Expansion order (N_u)            :  8
+   Spin dependence                  :  1
+   Cutoff             (optimizable) :  6.525833752027790E+00
+   alpha_0,1          (optimizable) :  2.041343681273293E-03
+   alpha_2,1          (optimizable) : -1.326636548684033E-05
+   alpha_3,1          (optimizable) :  4.406940215250416E-05
+   alpha_4,1          (optimizable) : -3.443486356748882E-05
+   alpha_5,1          (optimizable) :  9.046517271194702E-06
+   alpha_6,1          (optimizable) :  3.221496052383346E-07
+   alpha_7,1          (optimizable) : -3.619518464552839E-07
+   alpha_8,1          (optimizable) :  3.220907094063771E-08
+   alpha_0,2          (optimizable) :  3.087232224977124E-03
+   alpha_2,2          (optimizable) :  1.772622580476566E-04
+   alpha_3,2          (optimizable) : -1.381472032825254E-04
+   alpha_4,2          (optimizable) :  6.347097598021849E-05
+   alpha_5,2          (optimizable) : -9.787774051477657E-06
+   alpha_6,2          (optimizable) : -3.232075584790495E-07
+   alpha_7,2          (optimizable) :  1.218720244354953E-07
+   alpha_8,2          (optimizable) :  5.223733127949641E-09
+   No. of parameters in set         :  16
+   (In addition to the cutoff length.)
+
+ Chi term:
+  Number of sets                    :  1
+  SET 1:
+   Spherical harmonic l             :  0
+   Spherical harmonic m             :  0
+   Number of atoms in set           :  16
+   The atoms are:
+    1    2    3    4    5    6    7    8    9   10
+   11   12   13   14   15   16
+   Electron-nucleus cusp not imposed in Jastrow
+   Expansion order (N_chi)          :  8
+   Spin dependence                  :  0
+   Cutoff             (optimizable) :  3.958384638794560E+00
+   beta_0,1,1         (optimizable) : -1.158451911039243E-02
+   beta_2,1,1         (optimizable) :  4.672111239230990E-02
+   beta_3,1,1         (optimizable) : -7.007351723023963E-02
+   beta_4,1,1         (optimizable) :  4.149184741194354E-02
+   beta_5,1,1         (optimizable) : -7.413100510026271E-03
+   beta_6,1,1         (optimizable) : -2.751629311485395E-03
+   beta_7,1,1         (optimizable) :  1.343813088229938E-03
+   beta_8,1,1         (optimizable) : -1.565517658262465E-04
+   No. of parameters in set         :  8
+   (In addition to the cutoff length.)
+
+ F term:
+  Number of sets                    :  1
+  SET 1:
+   Number of atoms in set           :  16
+   The atoms are:
+    1    2    3    4    5    6    7    8    9   10
+   11   12   13   14   15   16
+   No constraints applied to avoid duplicating u.
+   No constraints applied to avoid duplicating chi.
+   Expansion order (N_f_eN)         :  2
+   Expansion order (N_f_ee)         :  2
+   Spin dependence                       :  0
+   Cutoff             (optimizable) :  2.006369915778210E+00
+   gamma_1,1,0,1,1    (optimizable) :  2.507034830425475E-03
+   gamma_2,1,0,1,1    (optimizable) : -1.183022456304569E-02
+   gamma_2,2,0,1,1    (optimizable) :  6.482896442414078E-02
+   gamma_0,0,2,1,1    (optimizable) :  1.473253317079256E-03
+   gamma_1,0,2,1,1    (optimizable) :  7.629154156406555E-04
+   gamma_1,1,2,1,1    (optimizable) : -8.048736105481400E-03
+   gamma_2,1,2,1,1    (optimizable) : -4.061661681298428E-03
+   gamma_2,2,2,1,1    (optimizable) :  8.636151397754704E-03
+   No. of parameters in set         :  8
+   (In addition to the cutoff length.)
+
+ Finished reading Jastrow factor from correlation.data.
+
+ Imposed symmetry and no-cusp constraints on gamma array.
+ Checked that gamma array satisfies its constraints.
+ Polynomials constructed.
+ Checked that cusp and cutoff conditions are satisfied.
+
+ Finished Jastrow setup.
+
+ Non-local integration grids
+ ===========================
+ Ion type            :  1
+ Non-local grid no.  :  4
+ Lexact              :  5
+ Number of points    :  12
+
+
+ Setup complete.
+
+ ======================================================
+ PERFORMING A VMC CONFIGURATION-GENERATION CALCULATION.
+ ======================================================
+
+
+ BEGIN VMC CALCULATION
+ =====================
+
+ No of up/down spin electrons initially associated with each ion:
+ ----------------------------------------------------------------
+ Element, # up-spin, # down-spin
+ Si            2          2
+ [Use edist_by_ion/edist_by_iontype in input to change this]
+
+
+ Running VMC equilibration (1000 moves).
+  Performing timestep optimization.
+  Optimized DTVMC:  6.9704E-01
+ Done. [total CPU time: 2s]
+
+ Kinetic energy check performed.
+  Slater determinants - gradient: optimal, Laplacian: optimal.
+  Jastrow factor - gradient: optimal, Laplacian: optimal.
+ End of report.
+
+ Starting VMC.
+
+ =========================================================================
+ In block : 1
+
+ Acceptance ratio <level 1>        (%)  =  55.7989
+ Acceptance ratio <levels 1-2>     (%)  =  50.1248
+ Diffusion constant           (Bohr^2)  = 2.0096E-01
+ Correlation time              (steps)  = 1.0142E+00 +- 1.0143E-01
+ Efficiency               (au^-2 s^-1)  = 8.6015E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.772728126971
+  Standard error                        +/-           0.003335030653
+
+  Kinetic energy KEI (used in Total) (au) =           3.475105018790
+  Standard error                        +/-           0.010641375745
+
+  Kinetic energy TI                  (au) =           3.447709196491
+  Standard error                        +/-           0.022356335829
+
+  Kinetic energy FISQ                (au) =           3.420313374192
+  Standard error                        +/-           0.045250699667
+
+  Potential energy                   (au) =          -2.797953859577
+  Standard error                        +/-           0.010515985062
+
+  Ewald e-e interaction              (au) =          -2.009156363881
+  Standard error                        +/-           0.007124105076
+
+  Ewald e-i interaction (local)      (au) =          -2.467536471210
+  Standard error                        +/-           0.019244361004
+
+  Ewald e-i interaction (non-local)  (au) =           1.678738975514
+  Standard error                        +/-           0.018886132761
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           1.055534844839
+  Standard error                        +/-           0.053955854660
+
+
+ Time taken in block    : : :       16.2900
+
+
+ =========================================================================
+ In block : 2
+
+ Acceptance ratio <level 1>        (%)  =  55.7257
+ Acceptance ratio <levels 1-2>     (%)  =  50.1397
+ Diffusion constant           (Bohr^2)  = 1.9976E-01
+ Correlation time              (steps)  = 9.6813E-01 +- 8.9911E-02
+ Efficiency               (au^-2 s^-1)  = 8.2603E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.768730430410
+  Standard error                        +/-           0.003460282371
+
+  Kinetic energy KEI (used in Total) (au) =           3.474219252257
+  Standard error                        +/-           0.011375910364
+
+  Kinetic energy TI                  (au) =           3.440722160519
+  Standard error                        +/-           0.023548283350
+
+  Kinetic energy FISQ                (au) =           3.407225068780
+  Standard error                        +/-           0.047593209241
+
+  Potential energy                   (au) =          -2.793070396483
+  Standard error                        +/-           0.011371846852
+
+  Ewald e-e interaction              (au) =          -2.002511003838
+  Standard error                        +/-           0.006591399858
+
+  Ewald e-i interaction (local)      (au) =          -2.450012155062
+  Standard error                        +/-           0.019011428200
+
+  Ewald e-i interaction (non-local)  (au) =           1.659452762417
+  Standard error                        +/-           0.017669966986
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           1.115424793042
+  Standard error                        +/-           0.063750169763
+
+
+ Time taken in block    : : :       16.2800
+
+
+ =========================================================================
+ In block : 3
+
+ Acceptance ratio <level 1>        (%)  =  55.7560
+ Acceptance ratio <levels 1-2>     (%)  =  50.1284
+ Diffusion constant           (Bohr^2)  = 2.0176E-01
+ Correlation time              (steps)  = 1.1316E+00 +- 1.1767E-01
+ Efficiency               (au^-2 s^-1)  = 6.6931E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.772900201483
+  Standard error                        +/-           0.003391096229
+
+  Kinetic energy KEI (used in Total) (au) =           3.482220133282
+  Standard error                        +/-           0.010624956310
+
+  Kinetic energy TI                  (au) =           3.478064126185
+  Standard error                        +/-           0.032162555791
+
+  Kinetic energy FISQ                (au) =           3.473908119088
+  Standard error                        +/-           0.064981406021
+
+  Potential energy                   (au) =          -2.805241048581
+  Standard error                        +/-           0.010082968664
+
+  Ewald e-e interaction              (au) =          -2.014073856984
+  Standard error                        +/-           0.006084056460
+
+  Ewald e-i interaction (local)      (au) =          -2.434494168130
+  Standard error                        +/-           0.018962140550
+
+  Ewald e-i interaction (non-local)  (au) =           1.643326976533
+  Standard error                        +/-           0.017076946745
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           1.213548423527
+  Standard error                        +/-           0.117100328479
+
+
+ Time taken in block    : : :       16.3200
+
+
+ =========================================================================
+ In block : 4
+
+ Acceptance ratio <level 1>        (%)  =  55.7449
+ Acceptance ratio <levels 1-2>     (%)  =  50.1209
+ Diffusion constant           (Bohr^2)  = 2.0009E-01
+ Correlation time              (steps)  = 1.0765E+00 +- 1.1007E-01
+ Efficiency               (au^-2 s^-1)  = 8.1934E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.774369005531
+  Standard error                        +/-           0.003350096377
+
+  Kinetic energy KEI (used in Total) (au) =           3.481494689772
+  Standard error                        +/-           0.010054220995
+
+  Kinetic energy TI                  (au) =           3.416106743884
+  Standard error                        +/-           0.020043471045
+
+  Kinetic energy FISQ                (au) =           3.350718797995
+  Standard error                        +/-           0.040861002203
+
+  Potential energy                   (au) =          -2.805984409118
+  Standard error                        +/-           0.010072379759
+
+  Ewald e-e interaction              (au) =          -2.009621605341
+  Standard error                        +/-           0.006346160117
+
+  Ewald e-i interaction (local)      (au) =          -2.452112958871
+  Standard error                        +/-           0.019499850401
+
+  Ewald e-i interaction (non-local)  (au) =           1.655750155094
+  Standard error                        +/-           0.018450601147
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           1.045254046079
+  Standard error                        +/-           0.063734839966
+
+
+ Time taken in block    : : :       16.2700
+
+
+ =========================================================================
+ In block : 5
+
+ Acceptance ratio <level 1>        (%)  =  55.7893
+ Acceptance ratio <levels 1-2>     (%)  =  50.1729
+ Diffusion constant           (Bohr^2)  = 1.9989E-01
+ Correlation time              (steps)  = 1.0138E+00 +- 9.8563E-02
+ Efficiency               (au^-2 s^-1)  = 8.3356E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.771172351025
+  Standard error                        +/-           0.003347103957
+
+  Kinetic energy KEI (used in Total) (au) =           3.484630320704
+  Standard error                        +/-           0.009588764346
+
+  Kinetic energy TI                  (au) =           3.421056256009
+  Standard error                        +/-           0.021597533064
+
+  Kinetic energy FISQ                (au) =           3.357482191313
+  Standard error                        +/-           0.042892537230
+
+  Potential energy                   (au) =          -2.805923385544
+  Standard error                        +/-           0.009534004787
+
+  Ewald e-e interaction              (au) =          -2.024014509887
+  Standard error                        +/-           0.006247029806
+
+  Ewald e-i interaction (local)      (au) =          -2.463367939495
+  Standard error                        +/-           0.018045269858
+
+  Ewald e-i interaction (non-local)  (au) =           1.681459063838
+  Standard error                        +/-           0.017176645562
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           1.090335926746
+  Standard error                        +/-           0.056230779150
+
+
+ Time taken in block    : : :       16.2800
+
+
+ =========================================================================
+ In block : 6
+
+ Acceptance ratio <level 1>        (%)  =  55.7378
+ Acceptance ratio <levels 1-2>     (%)  =  50.1467
+ Diffusion constant           (Bohr^2)  = 2.0223E-01
+ Correlation time              (steps)  = 1.0926E+00 +- 1.1910E-01
+ Efficiency               (au^-2 s^-1)  = 7.2894E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.774292149757
+  Standard error                        +/-           0.003489010557
+
+  Kinetic energy KEI (used in Total) (au) =           3.473668953974
+  Standard error                        +/-           0.011247875501
+
+  Kinetic energy TI                  (au) =           3.416280607668
+  Standard error                        +/-           0.023670862446
+
+  Kinetic energy FISQ                (au) =           3.358892261361
+  Standard error                        +/-           0.045733391900
+
+  Potential energy                   (au) =          -2.798081817547
+  Standard error                        +/-           0.010971666193
+
+  Ewald e-e interaction              (au) =          -2.011215615471
+  Standard error                        +/-           0.006406066761
+
+  Ewald e-i interaction (local)      (au) =          -2.496596884934
+  Standard error                        +/-           0.018882703784
+
+  Ewald e-i interaction (non-local)  (au) =           1.709730682857
+  Standard error                        +/-           0.017913712335
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           1.153371693321
+  Standard error                        +/-           0.059204044870
+
+
+ Time taken in block    : : :       16.3300
+
+
+ =========================================================================
+ In block : 7
+
+ Acceptance ratio <level 1>        (%)  =  55.7391
+ Acceptance ratio <levels 1-2>     (%)  =  50.1103
+ Diffusion constant           (Bohr^2)  = 2.0037E-01
+ Correlation time              (steps)  = 1.0517E+00 +- 1.1061E-01
+ Efficiency               (au^-2 s^-1)  = 8.7853E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.771872605982
+  Standard error                        +/-           0.003041627717
+
+  Kinetic energy KEI (used in Total) (au) =           3.481435978407
+  Standard error                        +/-           0.010697364473
+
+  Kinetic energy TI                  (au) =           3.426204473714
+  Standard error                        +/-           0.028567907907
+
+  Kinetic energy FISQ                (au) =           3.370972969020
+  Standard error                        +/-           0.058593706899
+
+  Potential energy                   (au) =          -2.803429298205
+  Standard error                        +/-           0.010468442085
+
+  Ewald e-e interaction              (au) =          -2.003877744792
+  Standard error                        +/-           0.006333588102
+
+  Ewald e-i interaction (local)      (au) =          -2.473922493451
+  Standard error                        +/-           0.018833516800
+
+  Ewald e-i interaction (non-local)  (au) =           1.674370940038
+  Standard error                        +/-           0.017126744992
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           0.992337062681
+  Standard error                        +/-           0.056173317829
+
+
+ Time taken in block    : : :       16.3600
+
+
+ =========================================================================
+ In block : 8
+
+ Acceptance ratio <level 1>        (%)  =  55.7889
+ Acceptance ratio <levels 1-2>     (%)  =  50.1166
+ Diffusion constant           (Bohr^2)  = 2.0059E-01
+ Correlation time              (steps)  = 9.8427E-01 +- 9.7655E-02
+ Efficiency               (au^-2 s^-1)  = 8.2841E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.769845283865
+  Standard error                        +/-           0.003574930722
+
+  Kinetic energy KEI (used in Total) (au) =           3.505459214063
+  Standard error                        +/-           0.010995399895
+
+  Kinetic energy TI                  (au) =           3.494260266344
+  Standard error                        +/-           0.046011449936
+
+  Kinetic energy FISQ                (au) =           3.483061318625
+  Standard error                        +/-           0.092748513599
+
+  Potential energy                   (au) =          -2.825425211743
+  Standard error                        +/-           0.010569449135
+
+  Ewald e-e interaction              (au) =          -2.019409536911
+  Standard error                        +/-           0.006086578757
+
+  Ewald e-i interaction (local)      (au) =          -2.506196945195
+  Standard error                        +/-           0.019507371740
+
+  Ewald e-i interaction (non-local)  (au) =           1.700181270363
+  Standard error                        +/-           0.018559884952
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           1.108819246863
+  Standard error                        +/-           0.065721843505
+
+
+ Time taken in block    : : :       16.3300
+
+
+ =========================================================================
+ In block : 9
+
+ Acceptance ratio <level 1>        (%)  =  55.7492
+ Acceptance ratio <levels 1-2>     (%)  =  50.1454
+ Diffusion constant           (Bohr^2)  = 2.0092E-01
+ Correlation time              (steps)  = 9.8795E-01 +- 9.6018E-02
+ Efficiency               (au^-2 s^-1)  = 8.4734E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.766887336363
+  Standard error                        +/-           0.003305097622
+
+  Kinetic energy KEI (used in Total) (au) =           3.495978656247
+  Standard error                        +/-           0.010315805782
+
+  Kinetic energy TI                  (au) =           3.496978161083
+  Standard error                        +/-           0.044636798763
+
+  Kinetic energy FISQ                (au) =           3.497977665919
+  Standard error                        +/-           0.089008806413
+
+  Potential energy                   (au) =          -2.812986706425
+  Standard error                        +/-           0.010269564801
+
+  Ewald e-e interaction              (au) =          -2.003890764579
+  Standard error                        +/-           0.006760224434
+
+  Ewald e-i interaction (local)      (au) =          -2.519153958635
+  Standard error                        +/-           0.018741811946
+
+  Ewald e-i interaction (non-local)  (au) =           1.710058016789
+  Standard error                        +/-           0.017754942179
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           1.080074829199
+  Standard error                        +/-           0.057172307271
+
+
+ Time taken in block    : : :       16.3900
+
+
+ =========================================================================
+ In block : 10
+
+ Acceptance ratio <level 1>        (%)  =  55.7675
+ Acceptance ratio <levels 1-2>     (%)  =  50.1508
+ Diffusion constant           (Bohr^2)  = 2.0056E-01
+ Correlation time              (steps)  = 9.1247E-01 +- 9.1644E-02
+ Efficiency               (au^-2 s^-1)  = 8.4345E+01
+
+  Block average energies (au per primitive cell)
+
+  Total energy                       (au) =          -7.769008292696
+  Standard error                        +/-           0.003476763319
+
+  Kinetic energy KEI (used in Total) (au) =           3.479582632949
+  Standard error                        +/-           0.010400503751
+
+  Kinetic energy TI                  (au) =           3.446264871012
+  Standard error                        +/-           0.023154395092
+
+  Kinetic energy FISQ                (au) =           3.412947109075
+  Standard error                        +/-           0.045820107070
+
+  Potential energy                   (au) =          -2.798711639460
+  Standard error                        +/-           0.010520583621
+
+  Ewald e-e interaction              (au) =          -2.000770753828
+  Standard error                        +/-           0.006169632666
+
+  Ewald e-i interaction (local)      (au) =          -2.465373292644
+  Standard error                        +/-           0.018379586262
+
+  Ewald e-i interaction (non-local)  (au) =           1.667432407012
+  Standard error                        +/-           0.017112271102
+
+  Constant energy contributions      (au) =          -8.449879286185
+
+  Var. of local energy per sim. cell (au) =           1.087713171464
+  Standard error                        +/-           0.057746290766
+
+
+ Time taken in block    : : :       16.3500
+
+ =========================================================================
+
+ CALC_VARIANCE output:
+ Variance of local energy (au/sim.cell) : 1.094241403776 +- 0.019129041810
+
+ =========================================================================
+
+ Reblocked VMC energy:       -7.771180578408 +/-        0.001049512546
+
+ =========================================================================
+
+
+ *     *     *     *     *     *     *     *     *     *     *     *
+
+ ===========================================
+ PERFORMING A DMC EQUILIBRATION CALCULATION.
+ ===========================================
+
+
+ BEGIN DMC CALCULATION
+ =====================
+
+ EBEST = -7.76661926885547 (au/prim cell inc. N-N)
+ EREF  = -7.76661926885547
+
+ =========================================================================
+ In block : 1
+
+ Load-balancing efficiency (%)           : 99.370
+ Number of config transfers              : 8
+ Acceptance ratio (%)                    : 99.946
+ New best estimate of DMC energy (au)    : -7.78078809
+ Max no of attempts before accept move   : 1
+
+ Time taken in block    : : :       28.4100
+
+ =========================================================================
+ In block : 2
+
+ Load-balancing efficiency (%)           : 99.158
+ Number of config transfers              : 4
+ Acceptance ratio (%)                    : 99.971
+ New best estimate of DMC energy (au)    : -7.78366666
+ Max no of attempts before accept move   : 2
+
+ Time taken in block    : : :       27.9100
+
+ =========================================================================
+ In block : 3
+
+ Load-balancing efficiency (%)           : 99.209
+ Number of config transfers              : 5
+ Acceptance ratio (%)                    : 99.963
+ New best estimate of DMC energy (au)    : -7.78790250
+ Max no of attempts before accept move   : 2
+
+ Time taken in block    : : :       27.9000
+
+ =========================================================================
+ In block : 4
+
+ Load-balancing efficiency (%)           : 99.475
+ Number of config transfers              : 5
+ Acceptance ratio (%)                    : 99.981
+ New best estimate of DMC energy (au)    : -7.79658711
+ Max no of attempts before accept move   : 1
+
+ Time taken in block    : : :       28.5000
+
+ =========================================================================
+ In block : 5
+
+ Load-balancing efficiency (%)           : 99.142
+ Number of config transfers              : 5
+ Acceptance ratio (%)                    : 99.961
+ New best estimate of DMC energy (au)    : -7.80352612
+ Max no of attempts before accept move   : 1
+
+ Time taken in block    : : :       28.8700
+
+
+ *     *     *     *     *     *     *     *     *     *     *     *
+
+ =====================================================
+ PERFORMING A DMC STATISTICS-ACCUMULATION CALCULATION.
+ =====================================================
+
+
+ BEGIN DMC CALCULATION
+ =====================
+
+ EBEST = -7.80352612110276 (au/prim cell inc. N-N)
+ EREF  = -7.80537141753896
+
+ Number of previous DMC stats accumulation moves : 0
+
+ =========================================================================
+ In block : 1
+
+ Load-balancing efficiency (%)           : 99.158
+ Number of config transfers              : 7
+ Acceptance ratio (%)                    : 99.963
+ New best estimate of DMC energy (au)    : -7.80106325
+ Max no of attempts before accept move   : 3
+ New best estimate of effective timestep : 0.00499728
+
+ Time taken in block    : : :       43.2700
+
+ =========================================================================
+ In block : 2
+
+ Load-balancing efficiency (%)           : 99.397
+ Number of config transfers              : 6
+ Acceptance ratio (%)                    : 99.968
+ New best estimate of DMC energy (au)    : -7.80055225
+ Max no of attempts before accept move   : 2
+ New best estimate of effective timestep : 0.00499723
+
+ Time taken in block    : : :       42.3900
+
+ =========================================================================
+ In block : 3
+
+ Load-balancing efficiency (%)           : 99.415
+ Number of config transfers              : 8
+ Acceptance ratio (%)                    : 99.966
+ New best estimate of DMC energy (au)    : -7.79842270
+ Max no of attempts before accept move   : 3
+ New best estimate of effective timestep : 0.00499717
+
+ Time taken in block    : : :       41.2100
+
+ =========================================================================
+ In block : 4
+
+ Load-balancing efficiency (%)           : 99.165
+ Number of config transfers              : 3
+ Acceptance ratio (%)                    : 99.968
+ New best estimate of DMC energy (au)    : -7.79702083
+ Max no of attempts before accept move   : 2
+ New best estimate of effective timestep : 0.00499718
+
+ Time taken in block    : : :       40.6600
+
+ =========================================================================
+ In block : 5
+
+ Load-balancing efficiency (%)           : 99.291
+ Number of config transfers              : 10
+ Acceptance ratio (%)                    : 99.972
+ New best estimate of DMC energy (au)    : -7.79723687
+ Max no of attempts before accept move   : 2
+ New best estimate of effective timestep : 0.00499716
+
+ Time taken in block    : : :       40.9000
+
+ =========================================================================
+ In block : 6
+
+ Load-balancing efficiency (%)           : 99.255
+ Number of config transfers              : 5
+ Acceptance ratio (%)                    : 99.969
+ New best estimate of DMC energy (au)    : -7.79661853
+ Max no of attempts before accept move   : 2
+ New best estimate of effective timestep : 0.00499722
+
+ Time taken in block    : : :       40.9300
+
+ =========================================================================
+ In block : 7
+
+ Load-balancing efficiency (%)           : 99.375
+ Number of config transfers              : 6
+ Acceptance ratio (%)                    : 99.967
+ New best estimate of DMC energy (au)    : -7.79668724
+ Max no of attempts before accept move   : 1
+ New best estimate of effective timestep : 0.00499724
+
+ Time taken in block    : : :       41.0601
+
+ =========================================================================
+ In block : 8
+
+ Load-balancing efficiency (%)           : 99.555
+ Number of config transfers              : 6
+ Acceptance ratio (%)                    : 99.963
+ New best estimate of DMC energy (au)    : -7.79668481
+ Max no of attempts before accept move   : 2
+ New best estimate of effective timestep : 0.00499725
+
+ Time taken in block    : : :       41.3800
+
+ =========================================================================
+ In block : 9
+
+ Load-balancing efficiency (%)           : 99.265
+ Number of config transfers              : 8
+ Acceptance ratio (%)                    : 99.960
+ New best estimate of DMC energy (au)    : -7.79756280
+ Max no of attempts before accept move   : 2
+ New best estimate of effective timestep : 0.00499728
+
+ Time taken in block    : : :       41.7300
+
+ =========================================================================
+ In block : 10
+
+ Load-balancing efficiency (%)           : 99.239
+ Number of config transfers              : 6
+ Acceptance ratio (%)                    : 99.964
+ New best estimate of DMC energy (au)    : -7.79848288
+ Max no of attempts before accept move   : 1
+ New best estimate of effective timestep : 0.00499725
+
+ Time taken in block    : : :       42.1000
+
+ =========================================================================
+ In block : 11
+
+ Load-balancing efficiency (%)           : 99.261
+ Number of config transfers              : 10
+ Acceptance ratio (%)                    : 99.951
+ New best estimate of DMC energy (au)    : -7.79895758
+ Max no of attempts before accept move   : 2
+ New best estimate of effective timestep : 0.00499722
+
+ Time taken in block    : : :       41.4900
+
+ =========================================================================
+ In block : 12
+
+ Load-balancing efficiency (%)           : 99.371
+ Number of config transfers              : 10
+ Acceptance ratio (%)                    : 99.971
+ New best estimate of DMC energy (au)    : -7.79980828
+ Max no of attempts before accept move   : 2
+ New best estimate of effective timestep : 0.00499725
+
+ Time taken in block    : : :       41.9800
+
+ =========================================================================
+ In block : 13
+
+ Load-balancing efficiency (%)           : 99.088
+ Number of config transfers              : 8
+ Acceptance ratio (%)                    : 99.955
+ New best estimate of DMC energy (au)    : -7.80032022
+ Max no of attempts before accept move   : 1
+ New best estimate of effective timestep : 0.00499722
+
+ Time taken in block    : : :       41.9699
+
+ =========================================================================
+ In block : 14
+
+ Load-balancing efficiency (%)           : 99.353
+ Number of config transfers              : 8
+ Acceptance ratio (%)                    : 99.976
+ New best estimate of DMC energy (au)    : -7.80040710
+ Max no of attempts before accept move   : 2
+ New best estimate of effective timestep : 0.00499722
+
+ Time taken in block    : : :       43.0601
+
+ =========================================================================
+ In block : 15
+
+ Load-balancing efficiency (%)           : 99.155
+ Number of config transfers              : 10
+ Acceptance ratio (%)                    : 99.966
+ New best estimate of DMC energy (au)    : -7.80073434
+ Max no of attempts before accept move   : 1
+ New best estimate of effective timestep : 0.00499723
+
+ Time taken in block    : : :       42.8900
+
+ =========================================================================
+ In block : 16
+
+ Load-balancing efficiency (%)           : 99.116
+ Number of config transfers              : 9
+ Acceptance ratio (%)                    : 99.968
+ New best estimate of DMC energy (au)    : -7.80071563
+ Max no of attempts before accept move   : 2
+ New best estimate of effective timestep : 0.00499723
+
+ Time taken in block    : : :       42.9200
+
+ =========================================================================
+ In block : 17
+
+ Load-balancing efficiency (%)           : 99.415
+ Number of config transfers              : 5
+ Acceptance ratio (%)                    : 99.965
+ New best estimate of DMC energy (au)    : -7.80056513
+ Max no of attempts before accept move   : 3
+ New best estimate of effective timestep : 0.00499723
+
+ Time taken in block    : : :       42.7500
+
+ =========================================================================
+ In block : 18
+
+ Load-balancing efficiency (%)           : 99.716
+ Number of config transfers              : 4
+ Acceptance ratio (%)                    : 99.962
+ New best estimate of DMC energy (au)    : -7.80014107
+ Max no of attempts before accept move   : 1
+ New best estimate of effective timestep : 0.00499722
+
+ Time taken in block    : : :       42.6500
+
+ =========================================================================
+ In block : 19
+
+ Load-balancing efficiency (%)           : 99.042
+ Number of config transfers              : 6
+ Acceptance ratio (%)                    : 99.968
+ New best estimate of DMC energy (au)    : -7.79991546
+ Max no of attempts before accept move   : 2
+ New best estimate of effective timestep : 0.00499724
+
+ Time taken in block    : : :       43.1300
+
+ =========================================================================
+ In block : 20
+
+ Load-balancing efficiency (%)           : 99.084
+ Number of config transfers              : 8
+ Acceptance ratio (%)                    : 99.967
+ New best estimate of DMC energy (au)    : -7.79976134
+ Max no of attempts before accept move   : 2
+ New best estimate of effective timestep : 0.00499723
+
+ Time taken in block    : : :       44.5000
+
+
+ Mixed estimators of the energies at the end of the run
+ ------------------------------------------------------
+ [All energies given in au per primitive cell]
+ Bad reblock convergence for ETOT. Too few data points? Standard error in
+ standard error larger than 10%.
+
+ Total energy                 =       -7.799761339660 +/-        0.002145800262
+ Kinetic energy (TI)          =        3.486646518456 +/-        0.011493452985
+ Kinetic energy (KEI)         =        3.489154097537 +/-        0.001221976902
+ Kinetic energy (FISQ)        =        3.484138939375 +/-        0.022207384780
+ e-e interac. (Ewald/Coulomb) =       -2.040033757082 +/-        0.002677083503
+ e-i interaction (local)      =       -2.458657262799 +/-        0.002543669115
+ e-i interaction (nonlocal)   =        1.659654868869 +/-        0.020381901827
+ Constant energy contribs.    =       -8.449879286185
+
+ Dump of raw reblock data
+ ------------------------
+ Number of data points collected = 600
+ Reblock data for energy:
+      mean:     -7.799761339660 +/-       0.002145800262
+    stderr:      0.002145800262 +/-       0.000765878320
+    errfac:      6.070863180024 +/-       2.166810477914
+    N_corr:     36.855379750565 +/-      26.308819896916
+   ------------------------------------------------------
+    Block len      Std error   Err in error
+            1   3.534588E-04   1.021467E-05
+            2   4.651969E-04   1.902827E-05
+            4   5.985274E-04   3.468068E-05
+            8   7.509023E-04   6.173948E-05
+           16   9.020492E-04   1.052002E-04
+           32   1.183584E-03   1.975296E-04
+           64   1.600609E-03   3.850914E-04
+          128   2.145800E-03   7.658783E-04  *** BEST ***
+          256   2.888180E-03   1.610056E-03
+   ------------------------------------------------------
+
+ =========================================================================
+
+ Total CASINO CPU time  : : :     1150.0300
+ Total CASINO real time : : :     1161.6311
+
+
+ Subroutine timers deactivated (use TIMING_INFO input keyword)
+
+ =========================================================================
+ Ends 2012/03/04 16:55:33.568

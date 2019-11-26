@@ -1,12 +1,12 @@
 mpirun -np 2 casino
 mv out out.dual
-cu
+clearup
 
 mpirun -np 4 casino
 mv out out.quad
-cu
+clearup
 
 casino
 mv out out.single
-cu
+clearup
 

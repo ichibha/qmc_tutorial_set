@@ -1,0 +1,142 @@
+ START HEADER
+ No title given.
+ END HEADER
+
+ START VERSION
+   1
+ END VERSION
+
+ START JASTROW
+ Title
+ H2O
+ Truncation order C
+   2
+ START U TERM
+ Number of sets
+   1
+ START SET 1
+ Spherical harmonic l,m
+   0 0
+ Expansion order N_u
+   4
+ Spin dep (0->uu=dd=ud; 1->uu=dd/=ud; 2->uu/=dd/=ud)
+   1
+ Cutoff (a.u.)     ;  Optimizable (0=NO; 1=YES)
+   5.0000000000000000                1
+ Parameter values  ;  Optimizable (0=NO; 1=YES)
+  -2.4378826180133308E-003           1       ! alpha_0,1
+  -1.0330083109684484E-003           1       ! alpha_2,1
+  -1.0758854662729785E-003           1       ! alpha_3,1
+   3.1546080096529500E-004           1       ! alpha_4,1
+  -1.4377039603225634E-002           1       ! alpha_0,2
+  -1.3104481929884027E-002           1       ! alpha_2,2
+   5.3794286674751675E-003           1       ! alpha_3,2
+  -9.7269814092613234E-004           1       ! alpha_4,2
+ END SET 1
+ END U TERM
+ START CHI TERM
+ Number of sets ; labelling (1->atom in s. cell; 2->atom in p. cell; 3->species)
+   2 1
+ START SET 1
+ Spherical harmonic l,m
+   0 0
+ Number of atoms in set
+   1
+ Label of the atom in this set
+    1
+ Impose electron-nucleus cusp (0=NO; 1=YES)
+   0
+ Expansion order N_chi
+   4
+ Spin dep (0->u=d; 1->u/=d)
+   0
+ Cutoff (a.u.)     ;  Optimizable (0=NO; 1=YES)
+   4.0000000000000000                1
+ Parameter values  ;  Optimizable (0=NO; 1=YES)
+   1.9898793739860619E-002           1       ! beta_0,1,1
+  -3.1073079722701138E-002           1       ! beta_2,1,1
+   1.1856829336277290E-004           1       ! beta_3,1,1
+  -1.1160005345739032E-003           1       ! beta_4,1,1
+ END SET 1
+ START SET 2
+ Spherical harmonic l,m
+   0 0
+ Number of atoms in set
+   2
+ Labels of the atoms in this set
+    2    3
+ Impose electron-nucleus cusp (0=NO; 1=YES)
+   0
+ Expansion order N_chi
+   4
+ Spin dep (0->u=d; 1->u/=d)
+   0
+ Cutoff (a.u.)     ;  Optimizable (0=NO; 1=YES)
+   4.0000000000000000                1
+ Parameter values  ;  Optimizable (0=NO; 1=YES)
+   1.1218921475182029E-002           1       ! beta_0,1,2
+  -1.1809623816835948E-002           1       ! beta_2,1,2
+   4.1171568684175352E-003           1       ! beta_3,1,2
+  -3.6681157888269756E-004           1       ! beta_4,1,2
+ END SET 2
+ END CHI TERM
+ START F TERM
+ Number of sets ; labelling (1->atom in s. cell; 2->atom in p. cell; 3->species)
+   2 1
+ START SET 1
+ Number of atoms in set
+   1
+ Label of the atom in this set
+    1
+ Prevent duplication of u term (0=NO; 1=YES)
+   0
+ Prevent duplication of chi term (0=NO; 1=YES)
+   0
+ Electron-nucleus expansion order N_f_eN
+   2
+ Electron-electron expansion order N_f_ee
+   2
+ Spin dep (0->uu=dd=ud; 1->uu=dd/=ud; 2->uu/=dd/=ud)
+   0
+ Cutoff (a.u.)     ;  Optimizable (0=NO; 1=YES)
+   3.0000000000000000                1
+ Parameter values  ;  Optimizable (0=NO; 1=YES)
+  -2.1566263061420561E-005           1       ! gamma_1,1,0,1,1
+  -5.8769274580611338E-004           1       ! gamma_2,1,0,1,1
+   1.1867820514436991E-003           1       ! gamma_2,2,0,1,1
+  -2.5465878463683963E-003           1       ! gamma_0,0,2,1,1
+   1.1928913405338895E-003           1       ! gamma_1,0,2,1,1
+   2.0956637248958888E-003           1       ! gamma_1,1,2,1,1
+  -3.7537352597706098E-004           1       ! gamma_2,1,2,1,1
+  -3.7807918349847604E-007           1       ! gamma_2,2,2,1,1
+ END SET 1
+ START SET 2
+ Number of atoms in set
+   2
+ Labels of the atoms in this set
+    2    3
+ Prevent duplication of u term (0=NO; 1=YES)
+   0
+ Prevent duplication of chi term (0=NO; 1=YES)
+   0
+ Electron-nucleus expansion order N_f_eN
+   2
+ Electron-electron expansion order N_f_ee
+   2
+ Spin dep (0->uu=dd=ud; 1->uu=dd/=ud; 2->uu/=dd/=ud)
+   0
+ Cutoff (a.u.)     ;  Optimizable (0=NO; 1=YES)
+   3.0000000000000000                1
+ Parameter values  ;  Optimizable (0=NO; 1=YES)
+  -1.1186660340161932E-003           1       ! gamma_1,1,0,1,2
+  -1.5830342220423815E-003           1       ! gamma_2,1,0,1,2
+  -3.7269138167634540E-004           1       ! gamma_2,2,0,1,2
+   4.7633126911934023E-004           1       ! gamma_0,0,2,1,2
+  -2.9481603960326125E-004           1       ! gamma_1,0,2,1,2
+  -2.0253110280459416E-003           1       ! gamma_1,1,2,1,2
+   4.4048048553878901E-004           1       ! gamma_2,1,2,1,2
+  -8.8947684547024752E-005           1       ! gamma_2,2,2,1,2
+ END SET 2
+ END F TERM
+ END JASTROW
+
